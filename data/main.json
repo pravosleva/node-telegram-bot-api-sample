@@ -1,0 +1,10 @@
+{
+  "gcs": {
+    "logo": {
+      "png": [
+        "https://yandex.ru",
+        "https://google.com"
+      ]
+    }
+  }
+}
