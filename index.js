@@ -59,28 +59,28 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
       options = {
         reply_markup: JSON.stringify({
           inline_keyboard: [
-            [{ text: 'Презентации', callback_data: 'gcs@pres' }],
-            [{ text: 'Логотипы', callback_data: 'gcs@logo' }],
-            [{ text: 'Маркетинговые материалы', callback_data: 'gcs@marketing' }],
-            [{ text: 'Видеоролики', callback_data: 'gcs@video' }]
+            [{ text: 'Презентации', callback_data: 'gcs.pres' }],
+            [{ text: 'Логотипы', callback_data: 'gcs.logo' }],
+            [{ text: 'Маркетинговые материалы', callback_data: 'gcs.marketing' }],
+            [{ text: 'Видеоролики', callback_data: 'gcs.video' }]
           ]
         })
       };
       bot.sendMessage(msg.chat.id, text, options);
       return
-    case 'gcs@logo':
+    case 'gcs.logo':
       text = 'В каком формате интересуют логотипы?';
       options = {
         reply_markup: JSON.stringify({
           inline_keyboard: [
-            [{ text: 'PNG', callback_data: 'gcs@logo-png' }],
-            [{ text: 'JPG', callback_data: 'gcs@logo-jpg' }]
+            [{ text: 'PNG', callback_data: 'gcs.logo.png' }],
+            [{ text: 'JPG', callback_data: 'gcs.logo.jpg' }]
           ]
         })
       };
       bot.sendMessage(msg.chat.id, text, options);
       return
-    case 'gcs@logo-png':
+    case 'gcs.logo.png':
       text = data.gcs.logo.png.join('\n');
       bot.sendMessage(msg.chat.id, text);
       return
