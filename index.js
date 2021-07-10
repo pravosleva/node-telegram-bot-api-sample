@@ -15,7 +15,8 @@ const {
   DEVELOPER_CHAT_ID,
 } = process.env
 
-if (Number.isNaN(Number(DEVELOPER_CHAT_ID))) throw new Error('Check process.env.DEVELOPER_CHAT_ID')
+let hasDevSupport = false
+if (!Number.isNaN(Number(DEVELOPER_CHAT_ID)) && !!DEVELOPER_CHAT_ID) hasDevSupport = true // throw new Error('Check process.env.DEVELOPER_CHAT_ID')
 
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(TG_BOT_TOKEN, { polling: true })
@@ -34,16 +35,18 @@ bot.onText(/\/echo (.+)/, function (msg, match) {
   bot.sendMessage(chatId, resp)
 })
 
-// Matches "/wtf [whatever]"
-bot.onText(/\/wtf (.+)/, function (msg, match) {
-  const senderChatId = msg.chat.id
-  const message = match[1] // the captured "whatever"
+if (hasDevSupport) {
+  // Matches "/wtf [whatever]"
+  bot.onText(/\/wtf (.+)/, function (msg, match) {
+    const senderChatId = msg.chat.id
+    const message = match[1] // the captured "whatever"
 
-  // const res = await axios.get(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage?text=${msg}&chat_id=${DEVELOPER_CHAT_ID}`)
+    // const res = await axios.get(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage?text=${msg}&chat_id=${DEVELOPER_CHAT_ID}`)
 
-  bot.sendMessage(Number(DEVELOPER_CHAT_ID), `New Entry from @${msg.chat.username}:` + '\n\n' + message)
-  bot.sendMessage(senderChatId, `Ok ${msg.chat.first_name}, your msg sent to ${DEVELOPER_NAME}`)
-})
+    bot.sendMessage(Number(DEVELOPER_CHAT_ID), `New Entry from @${msg.chat.username}:` + '\n\n' + message)
+    bot.sendMessage(senderChatId, `Ok ${msg.chat.first_name}, your msg sent to ${DEVELOPER_NAME}`)
+  })
+}
 
 gksLogic(bot)
 
