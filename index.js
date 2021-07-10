@@ -37,11 +37,11 @@ bot.onText(/\/echo (.+)/, function (msg, match) {
 // Matches "/wtf [whatever]"
 bot.onText(/\/wtf (.+)/, function (msg, match) {
   const senderChatId = msg.chat.id
-  const msg = match[1] // the captured "whatever"
+  const message = match[1] // the captured "whatever"
 
   // const res = await axios.get(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage?text=${msg}&chat_id=${DEVELOPER_CHAT_ID}`)
 
-  bot.sendMessage(Number(DEVELOPER_CHAT_ID), `BOT MSG: From ${senderChatId}` + '\n' + msg)
+  bot.sendMessage(Number(DEVELOPER_CHAT_ID), `BOT MSG: From ${senderChatId}` + '\n' + message)
   bot.sendMessage(senderChatId, `Ok, your msg sent to ${DEVELOPER_NAME}`)
 })
 
