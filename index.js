@@ -33,7 +33,7 @@ bot.onText(/\/echo (.+)/, function (msg, match) {
 })
 
 // Matches "/wtf [whatever]"
-bot.onText(/\/wtf (.+)/, async function (msg, match) {
+bot.onText(/\/wtf (.+)/, function (msg, match) {
   const senderChatId = msg.chat.id
   const msg = match[1] // the captured "whatever"
 
