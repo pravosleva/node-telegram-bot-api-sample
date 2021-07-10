@@ -41,7 +41,7 @@ bot.onText(/\/wtf (.+)/, function (msg, match) {
 
   // const res = await axios.get(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage?text=${msg}&chat_id=${DEVELOPER_CHAT_ID}`)
 
-  bot.sendMessage(Number(DEVELOPER_CHAT_ID), `BOT MSG: From ${senderChatId}` + '\n' + message)
+  bot.sendMessage(Number(DEVELOPER_CHAT_ID), '**BOT MSG**\n' + message + '\n' + `FROM @${msg.chat.username}, ${senderChatId}`)
   bot.sendMessage(senderChatId, `Ok, your msg sent to ${DEVELOPER_NAME}`)
 })
 
