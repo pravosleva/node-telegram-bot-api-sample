@@ -15,6 +15,8 @@ const {
   DEVELOPER_CHAT_ID,
 } = process.env
 
+if (Number.isNaN(Number(DEVELOPER_CHAT_ID))) throw new Error('Check process.env.DEVELOPER_CHAT_ID')
+
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(TG_BOT_TOKEN, { polling: true })
 
@@ -39,7 +41,7 @@ bot.onText(/\/wtf (.+)/, function (msg, match) {
 
   // const res = await axios.get(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage?text=${msg}&chat_id=${DEVELOPER_CHAT_ID}`)
 
-  bot.sendMessage(DEVELOPER_CHAT_ID, `BOT MSG: From ${senderChatId}` + '\n' + msg)
+  bot.sendMessage(Number(DEVELOPER_CHAT_ID), `BOT MSG: From ${senderChatId}` + '\n' + msg)
   bot.sendMessage(senderChatId, `Ok, your msg sent to ${DEVELOPER_NAME}`)
 })
 
