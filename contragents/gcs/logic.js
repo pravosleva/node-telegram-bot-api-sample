@@ -84,7 +84,7 @@ module.exports = (bot) => {
         bot.sendMessage(msg.chat.id, text, options);
         return
       case 'gcs.pp.info':
-        text = data.gcs.dcsb.logo.join('\n');
+        text = data.gcs.pp.info.join('\n');
         bot.sendMessage(msg.chat.id, text);
         return
       default:
