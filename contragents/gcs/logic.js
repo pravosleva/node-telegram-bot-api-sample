@@ -1,5 +1,9 @@
 const data = require('./data.json')
 
+function abSort(a, b) {
+  return a.firstname.localeCompare(b.firstname);
+}
+
 module.exports = (bot) => {
   // Handle callback queries
   bot.on('callback_query', function onCallbackQuery(callbackQuery) {
@@ -41,11 +45,11 @@ module.exports = (bot) => {
         bot.sendMessage(msg.chat.id, text, options);
         return
       case 'gcs.main.logo':
-        text = data.gcs.main.logo.join('\n');
+        text = data.gcs.main.logo.sort(abSort).join('\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'gcs.main.info':
-        text = data.gcs.main.info.join('\n');
+        text = data.gcs.main.info.sort(abSort).join('\n');
         bot.sendMessage(msg.chat.id, text);
         return
 
@@ -63,11 +67,11 @@ module.exports = (bot) => {
         bot.sendMessage(msg.chat.id, text, options);
         return
       case 'gcs.dcsb.logo':
-        text = data.gcs.dcsb.logo.join('\n');
+        text = data.gcs.dcsb.logo.sort(abSort).join('\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'gcs.dcsb.info':
-        text = data.gcs.dcsb.info.join('\n');
+        text = data.gcs.dcsb.info.sort(abSort).join('\n');
         bot.sendMessage(msg.chat.id, text);
         return
 
@@ -84,7 +88,7 @@ module.exports = (bot) => {
         bot.sendMessage(msg.chat.id, text, options);
         return
       case 'gcs.pp.info':
-        text = data.gcs.pp.info.join('\n');
+        text = data.gcs.pp.info.sort(abSort).join('\n');
         bot.sendMessage(msg.chat.id, text);
         return
       default:
