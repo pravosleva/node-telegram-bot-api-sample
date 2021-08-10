@@ -3,6 +3,7 @@ const path = require('path')
 // const axios = require('axios')
 
 require('dotenv').config({ path: path.join(__dirname, './.prod.env') })
+const abSort = (a, b) => a.localeCompare(b)
 
 // CONTRAGENTS:
 const gksLogic = require('./contragents/gcs/logic')
@@ -46,7 +47,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
       ]
     })
   };
-  usersMap.set(msg.chat.username, msg)
+  usersMap.set(msg.chat.username, msg.chat)
   bot.sendMessage(msg.chat.id, "Добрый день, выберите компанию", options);
 })
 gksLogic(bot)
@@ -56,6 +57,7 @@ bot.onText(/\/total/, function(msg) {
     reply_markup: JSON.stringify({
       inline_keyboard: [
         [{ text: 'Users counter', callback_data: 'total-users-counter' }],
+        [{ text: 'User names', callback_data: 'total-user-names' }],
       ]
     })
   };
@@ -64,7 +66,22 @@ bot.onText(/\/total/, function(msg) {
 bot.on("callback_query", function onCallbackQuery(callbackQuery) {
   const action = callbackQuery.data;
   const msg = callbackQuery.message;
-  if (action === 'total-users-counter') bot.sendMessage(msg.chat.id, String(usersMap.size));
+
+  switch (action) {
+    case 'total-users-counter':
+      bot.sendMessage(msg.chat.id, String(usersMap.size));
+      return
+    case 'total-user-names':
+      if (usersMap.size > 0) {
+        const names = [...usersMap.keys()]
+        bot.sendMessage(msg.chat.id, names.sort(abSort).join('\n'));
+      } else {
+        bot.sendMessage(msg.chat.id, 'No users yet');
+      }
+      return
+    default:
+      return
+  }
 })
 
 bot.onText(/\/get_chat (.+)/, function(msg, match) {
@@ -92,9 +109,9 @@ if (hasDevSupport) {
 
 // Listen for any kind of message. There are different kinds of
 // messages.
-bot.on('message', function (msg) {
-  const chatId = msg.chat.id
+// bot.on('message', function (msg) {
+//   const chatId = msg.chat.id
 
-  // send a message to the chat acknowledging receipt of their message
-  bot.sendMessage(chatId, "Received your message")
-})
+//   // send a message to the chat acknowledging receipt of their message
+//   bot.sendMessage(chatId, "Received your message")
+// })
