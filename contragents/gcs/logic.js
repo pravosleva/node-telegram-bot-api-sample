@@ -1,7 +1,7 @@
 const data = require('./data.json')
 
 function abSort(a, b) {
-  return a.firstname.localeCompare(b.firstname);
+  return a.localeCompare(b);
 }
 
 module.exports = (bot) => {
