@@ -73,11 +73,6 @@ bot.onText(/\/get-chat (.+)/, function(msg) {
   const chatData = usersMap(userName)
   if (!!chatData) bot.sendMessage(msg.chat.id, JSON.stringify(chatData, null, 2));
 })
-bot.on("callback_query", function onCallbackQuery(callbackQuery) {
-  const action = callbackQuery.data;
-  const msg = callbackQuery.message;
-  if (action === 'total-users-counter') bot.sendMessage(msg.chat.id, String(usersMap.size));
-})
 
 if (hasDevSupport) {
   // Matches "/wtf [whatever]"
