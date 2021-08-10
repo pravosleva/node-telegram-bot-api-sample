@@ -73,8 +73,13 @@ bot.on("callback_query", function onCallbackQuery(callbackQuery) {
       return
     case 'total-user-names':
       if (usersMap.size > 0) {
-        const names = [...usersMap.keys()]
-        bot.sendMessage(msg.chat.id, names.sort(abSort).join('\n'));
+        // const names = [...usersMap.keys()]
+        const result = []
+        for (let [userName, data] of recipeMap) {
+          result.push(`@${userName}, ${data.chat.id}`)
+        }
+        
+        bot.sendMessage(msg.chat.id, result.sort(abSort).join('\n'));
       } else {
         bot.sendMessage(msg.chat.id, 'No users yet');
       }
