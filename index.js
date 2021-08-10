@@ -8,6 +8,8 @@ require('dotenv').config({ path: path.join(__dirname, './.prod.env') })
 const gksLogic = require('./contragents/gcs/logic')
 // Others...
 
+const usersMap = new Map()
+
 // replace the value below with the Telegram token you receive from @BotFather
 const {
   TG_BOT_TOKEN,
@@ -45,9 +47,25 @@ bot.onText(/(baza|gcs)/, function(msg) {
       ]
     })
   };
+  usersMap.set(msg.chat.id, msg.chat)
   bot.sendMessage(msg.chat.id, "Добрый день, выберите компанию", options);
 })
 gksLogic(bot)
+
+bot.onText(/\/total/, function(msg) {
+  const options = {
+    reply_markup: JSON.stringify({
+      inline_keyboard: [
+        [{ text: 'Users counter', callback_data: 'total-users-counter' }],
+      ]
+    })
+  };
+  bot.sendMessage(msg.chat.id, "А?", options);
+})
+bot.on("callback_query", function onCallbackQuery(callbackQuery) {
+  const action = callbackQuery.data;
+  if (action === 'total-users-counter') bot.sendMessage(msg.chat.id, usersMap.size);
+})
 
 if (hasDevSupport) {
   // Matches "/wtf [whatever]"
