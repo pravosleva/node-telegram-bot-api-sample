@@ -75,7 +75,7 @@ bot.on("callback_query", function onCallbackQuery(callbackQuery) {
       if (usersMap.size > 0) {
         // const names = [...usersMap.keys()]
         const result = []
-        for (let [userName, chatData] of recipeMap) {
+        for (let [userName, chatData] of usersMap) {
           result.push(`@${userName}, ${chatData.id}`)
         }
         
