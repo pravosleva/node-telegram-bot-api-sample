@@ -47,6 +47,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
   };
   bot.sendMessage(msg.chat.id, "Добрый день, выберите компанию", options);
 })
+gksLogic(bot)
 
 if (hasDevSupport) {
   // Matches "/wtf [whatever]"
@@ -60,8 +61,6 @@ if (hasDevSupport) {
     bot.sendMessage(senderChatId, `Ok ${msg.chat.first_name}, your msg sent to ${DEVELOPER_NAME}`)
   })
 }
-
-gksLogic(bot)
 
 // Listen for any kind of message. There are different kinds of
 // messages.
