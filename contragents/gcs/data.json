@@ -1,14 +1,10 @@
 {
   "gcs": {
-    "logo": {
-      "png": [
-        "https://yandex.ru"
-      ]
-    },
-    "pres": {},
-    "marketing": {},
-    "video": {}
-  },
-  "triafly": {},
-  "ds": {}
+    "logo": [
+      "Общий_рус - https://yandex1.ru",
+      "Офиц_рус - https://yandex2.ru",
+      "Англ - https://yandex3.ru",
+      "С исходящим - https://yandex4.ru"
+    ]
+  }
 }

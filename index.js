@@ -35,6 +35,19 @@ bot.onText(/\/echo (.+)/, function (msg, match) {
   bot.sendMessage(chatId, resp)
 })
 
+bot.onText(/(baza|gcs)/, function(msg) {
+  const options = {
+    reply_markup: JSON.stringify({
+      inline_keyboard: [
+        [{ text: 'ГКС', callback_data: 'gcs' }],
+        // [{ text: 'Триафлай', callback_data: 'triafly' }],
+        // [{ text: 'ДС', callback_data: 'ds' }]
+      ]
+    })
+  };
+  bot.sendMessage(msg.chat.id, "Добрый день, выберите компанию", options);
+})
+
 if (hasDevSupport) {
   // Matches "/wtf [whatever]"
   bot.onText(/\/wtf (.+)/, function (msg, match) {
