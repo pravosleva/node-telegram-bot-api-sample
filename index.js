@@ -47,7 +47,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
       ]
     })
   };
-  usersMap.set(msg.chat.id, msg.chat)
+  usersMap.set(msg.chat.username, msg.chat)
   bot.sendMessage(msg.chat.id, "Добрый день, выберите компанию", options);
 })
 gksLogic(bot)
@@ -61,6 +61,17 @@ bot.onText(/\/total/, function(msg) {
     })
   };
   bot.sendMessage(msg.chat.id, "А?", options);
+})
+bot.on("callback_query", function onCallbackQuery(callbackQuery) {
+  const action = callbackQuery.data;
+  const msg = callbackQuery.message;
+  if (action === 'total-users-counter') bot.sendMessage(msg.chat.id, String(usersMap.size));
+})
+
+bot.onText(/\/get-chat (.+)/, function(msg) {
+  const userName = match[1]
+  const chatData = usersMap(userName)
+  if (!!chatData) bot.sendMessage(msg.chat.id, JSON.stringify(chatData, null, 2));
 })
 bot.on("callback_query", function onCallbackQuery(callbackQuery) {
   const action = callbackQuery.data;
