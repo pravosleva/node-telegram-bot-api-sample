@@ -64,7 +64,7 @@ bot.onText(/\/total/, function(msg) {
 })
 bot.on("callback_query", function onCallbackQuery(callbackQuery) {
   const action = callbackQuery.data;
-  if (action === 'total-users-counter') bot.sendMessage(msg.chat.id, usersMap.size);
+  if (action === 'total-users-counter') bot.sendMessage(msg.chat.id, String(usersMap.size));
 })
 
 if (hasDevSupport) {
