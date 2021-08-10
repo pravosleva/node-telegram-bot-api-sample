@@ -69,7 +69,7 @@ bot.on("callback_query", function onCallbackQuery(callbackQuery) {
 
 bot.onText(/\/get_chat (.+)/, function(msg, match) {
   const userName = match[1]
-  const chatData = usersMap(userName)
+  const chatData = usersMap.get(userName)
   if (!!chatData) {
     bot.sendMessage(msg.chat.id, JSON.stringify(chatData, null, 2));
   } else {
