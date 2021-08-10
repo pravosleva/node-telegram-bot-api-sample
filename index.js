@@ -25,7 +25,6 @@ const bot = new TelegramBot(TG_BOT_TOKEN, { polling: true })
 
 // Matches "/echo [whatever]"
 bot.onText(/\/echo (.+)/, function (msg, match) {
-  console.log(msg)
   // 'msg' is the received Message from Telegram
   // 'match' is the result of executing the regexp above on the text content
   // of the message
@@ -68,10 +67,14 @@ bot.on("callback_query", function onCallbackQuery(callbackQuery) {
   if (action === 'total-users-counter') bot.sendMessage(msg.chat.id, String(usersMap.size));
 })
 
-bot.onText(/\/get_chat (.+)/, function(msg) {
+bot.onText(/\/get_chat (.+)/, function(msg, match) {
   const userName = match[1]
   const chatData = usersMap(userName)
-  if (!!chatData) bot.sendMessage(msg.chat.id, JSON.stringify(chatData, null, 2));
+  if (!!chatData) {
+    bot.sendMessage(msg.chat.id, JSON.stringify(chatData, null, 2));
+  } else {
+    bot.sendMessage(msg.chat.id, 'Not found');
+  }
 })
 
 if (hasDevSupport) {
