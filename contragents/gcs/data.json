@@ -1,10 +1,25 @@
 {
   "gcs": {
-    "logo": [
-      "Общий_рус - https://yandex1.ru",
-      "Офиц_рус - https://yandex2.ru",
-      "Англ - https://yandex3.ru",
-      "С исходящим - https://yandex4.ru"
-    ]
+    "main": {
+      "logo": [
+        "Общий_рус - https://yandex1.ru",
+        "Офиц_рус - https://yandex2.ru",
+        "Англ - https://yandex3.ru",
+        "С исходящим - https://yandex4.ru"
+      ],
+      "info": [
+        "hui - https://yandex.ru"
+      ]
+    },
+    "dscb": {
+      "info": [
+        "hui - https://yandex.ru"
+      ]
+    },
+    "pp": {
+      "info": [
+        "huinya - https://yandex.ru"
+      ]
+    }
   }
 }

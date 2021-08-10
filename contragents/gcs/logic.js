@@ -13,12 +13,12 @@ module.exports = (bot) => {
     let options
     switch(action) {
       case 'gcs':
-        text = 'Выберите материалы';
+        text = 'Выберите компанию-дочку';
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
               // [{ text: 'Презентации', callback_data: 'gcs.pres' }],
-              [{ text: 'Логотипы', callback_data: 'gcs.logo' }],
+              [{ text: 'ГКС', callback_data: 'gcs.main' }],
               // [{ text: 'Маркетинговые материалы', callback_data: 'gcs.marketing' }],
               // [{ text: 'Видеоролики', callback_data: 'gcs.video' }]
             ]
@@ -26,8 +26,26 @@ module.exports = (bot) => {
         };
         bot.sendMessage(msg.chat.id, text, options);
         return
-      case 'gcs.logo':
-        text = data.gcs.logo.join('\n');
+      case 'gcs.main':
+        text = 'Выберите материалы';
+        options = {
+          reply_markup: JSON.stringify({
+            inline_keyboard: [
+              // [{ text: 'Презентации', callback_data: 'gcs.pres' }],
+              [{ text: 'Логотипы', callback_data: 'gcs.main.logo' }],
+              [{ text: 'Info', callback_data: 'gcs.main.info' }],
+              // [{ text: 'Видеоролики', callback_data: 'gcs.video' }]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id, text, options);
+        return
+      case 'gcs.main.logo':
+        text = data.gcs.main.logo.join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      case 'gcs.main.info':
+        text = data.gcs.main.info.join('\n');
         bot.sendMessage(msg.chat.id, text);
         return
       // case 'gcs.logo.<LEVEL_3>':
