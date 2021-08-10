@@ -25,6 +25,7 @@ module.exports = (bot) => {
         };
         bot.sendMessage(msg.chat.id, text, options);
         return
+
       // 1. GCS MAIN
       case 'gcs.main':
         text = 'Выберите материалы ГКС';
@@ -47,6 +48,7 @@ module.exports = (bot) => {
         text = data.gcs.main.info.join('\n');
         bot.sendMessage(msg.chat.id, text);
         return
+
       // 2. DCSB
       case 'gcs.dcsb':
         text = 'Выберите материалы ДКСБ';
@@ -68,13 +70,14 @@ module.exports = (bot) => {
         text = data.gcs.dcsb.info.join('\n');
         bot.sendMessage(msg.chat.id, text);
         return
+
       // 3. PP
       case 'gcs.pp':
-        text = 'Выберите материалы ДКСБ';
+        text = 'Выберите материалы ПП';
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
-              [{ text: 'Info ДКСБ', callback_data: 'gcs.dcsb.info' }],
+              [{ text: 'Info ПП', callback_data: 'gcs.pp.info' }],
             ]
           })
         };
