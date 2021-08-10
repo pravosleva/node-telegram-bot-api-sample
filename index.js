@@ -68,7 +68,7 @@ bot.on("callback_query", function onCallbackQuery(callbackQuery) {
   if (action === 'total-users-counter') bot.sendMessage(msg.chat.id, String(usersMap.size));
 })
 
-bot.onText(/\/get-chat (.+)/, function(msg) {
+bot.onText(/\/get_chat (.+)/, function(msg) {
   const userName = match[1]
   const chatData = usersMap(userName)
   if (!!chatData) bot.sendMessage(msg.chat.id, JSON.stringify(chatData, null, 2));
