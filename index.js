@@ -46,7 +46,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
       ]
     })
   };
-  usersMap.set(msg.chat.username, msg.chat)
+  usersMap.set(msg.chat.username, msg)
   bot.sendMessage(msg.chat.id, "Добрый день, выберите компанию", options);
 })
 gksLogic(bot)
