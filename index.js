@@ -1,6 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api')
 const path = require('path')
 const axios = require('axios')
+const { Base64 } = require('js-base64')
 
 require('dotenv').config({ path: path.join(__dirname, './.prod.env') })
 const abSort = (a, b) => a.localeCompare(b)
@@ -48,7 +49,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
     })
   };
   usersMap.set(msg.chat.username, msg.chat)
-  axios.post('http://pravosleva.ru/express-helper/gcs/add-user', {
+  axios.post(Base64.decode('aHR0cDovL3ByYXZvc2xldmEucnUvZXhwcmVzcy1oZWxwZXIvZ2NzL2FkZC11c2Vy'), {
     userName: msg.chat.username,
     chatData: msg.chat,
   })
