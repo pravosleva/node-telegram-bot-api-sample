@@ -11,14 +11,19 @@
         "hui - https://yandex.ru"
       ]
     },
-    "dscb": {
+    "dcsb": {
       "info": [
-        "hui - https://yandex.ru"
+        "dcsb info1 - https://yandex.ru",
+        "dcsb info2 - https://google.com"
+      ],
+      "logo": [
+        "dcsb logo1 - https://yandex.ru",
+        "dcsb logo2 - https://google.com"
       ]
     },
     "pp": {
       "info": [
-        "huinya - https://yandex.ru"
+        "pp huinya - https://yandex.ru"
       ]
     }
   }

@@ -17,23 +17,22 @@ module.exports = (bot) => {
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
-              // [{ text: 'Презентации', callback_data: 'gcs.pres' }],
               [{ text: 'ГКС', callback_data: 'gcs.main' }],
-              // [{ text: 'Маркетинговые материалы', callback_data: 'gcs.marketing' }],
-              // [{ text: 'Видеоролики', callback_data: 'gcs.video' }]
+              [{ text: 'ДКСБ', callback_data: 'gcs.dcsb' }],
+              [{ text: 'ПП', callback_data: 'gcs.pp' }]
             ]
           })
         };
         bot.sendMessage(msg.chat.id, text, options);
         return
+      // 1. GCS MAIN
       case 'gcs.main':
-        text = 'Выберите материалы';
+        text = 'Выберите материалы ГКС';
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
-              // [{ text: 'Презентации', callback_data: 'gcs.pres' }],
-              [{ text: 'Логотипы', callback_data: 'gcs.main.logo' }],
-              [{ text: 'Info', callback_data: 'gcs.main.info' }],
+              [{ text: 'Логотипы ГКС', callback_data: 'gcs.main.logo' }],
+              [{ text: 'Info ГКС', callback_data: 'gcs.main.info' }],
               // [{ text: 'Видеоролики', callback_data: 'gcs.video' }]
             ]
           })
@@ -48,10 +47,43 @@ module.exports = (bot) => {
         text = data.gcs.main.info.join('\n');
         bot.sendMessage(msg.chat.id, text);
         return
-      // case 'gcs.logo.<LEVEL_3>':
-      //   text = data.gcs.logo.png.join('\n');
-      //   bot.sendMessage(msg.chat.id, text);
-      //   return
+      // 2. DCSB
+      case 'gcs.dcsb':
+        text = 'Выберите материалы ДКСБ';
+        options = {
+          reply_markup: JSON.stringify({
+            inline_keyboard: [
+              [{ text: 'Логотипы ДКСБ', callback_data: 'gcs.dcsb.logo' }],
+              [{ text: 'Info ДКСБ', callback_data: 'gcs.dcsb.info' }],
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id, text, options);
+        return
+      case 'gcs.dcsb.logo':
+        text = data.gcs.dcsb.logo.join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      case 'gcs.dcsb.info':
+        text = data.gcs.dcsb.info.join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      // 3. PP
+      case 'gcs.pp':
+        text = 'Выберите материалы ДКСБ';
+        options = {
+          reply_markup: JSON.stringify({
+            inline_keyboard: [
+              [{ text: 'Info ДКСБ', callback_data: 'gcs.dcsb.info' }],
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id, text, options);
+        return
+      case 'gcs.pp.info':
+        text = data.gcs.dcsb.logo.join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
       default:
         bot.editMessageText(text, userOpts)
         return
