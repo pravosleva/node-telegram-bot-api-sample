@@ -75,8 +75,8 @@ bot.on("callback_query", function onCallbackQuery(callbackQuery) {
       if (usersMap.size > 0) {
         // const names = [...usersMap.keys()]
         const result = []
-        for (let [userName, data] of recipeMap) {
-          result.push(`@${userName}, ${data.chat.id}`)
+        for (let [userName, chatData] of recipeMap) {
+          result.push(`@${userName}, ${chatData.id}`)
         }
         
         bot.sendMessage(msg.chat.id, result.sort(abSort).join('\n'));
