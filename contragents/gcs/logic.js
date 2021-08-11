@@ -36,12 +36,12 @@ module.exports = (bot) => {
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
-              [{ text: 'Логотипы ГКС', callback_data: 'gcs.main.logo' }],
-              [{ text: 'Info ГКС', callback_data: 'gcs.main.info' }],
-              [{ text: 'Blanks ГКС', callback_data: 'gcs.main.blanks' }],
-              [{ text: 'Profiles ГКС', callback_data: 'gcs.main.profiles' }],
-              [{ text: 'Presentations ГКС', callback_data: 'gcs.main.presentations' }],
-              [{ text: 'Буклеты ГКС', callback_data: 'gcs.main.buklets' }],
+              [{ text: 'Logo', callback_data: 'gcs.main.logo' }],
+              [{ text: 'Info', callback_data: 'gcs.main.info' }],
+              [{ text: 'Blanks', callback_data: 'gcs.main.blanks' }],
+              [{ text: 'Profiles', callback_data: 'gcs.main.profiles' }],
+              [{ text: 'Presentations', callback_data: 'gcs.main.presentations' }],
+              [{ text: 'Buklets', callback_data: 'gcs.main.buklets' }],
               [{ text: 'Structure', callback_data: 'gcs.main.structure' }],
               [{ text: 'Materials', callback_data: 'gcs.main.materials' }],
               [{ text: 'Compliance', callback_data: 'gcs.main.compliance' }],
