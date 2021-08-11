@@ -21,6 +21,7 @@ const lanmaxLogic = require('./contragents/lanmax/logic');
 const systematica_belLogic = require('./contragents/systematica_bel/logic');
 const nccLogic = require('./contragents/nss/logic');
 const aquariusLogic = require('./contragents/aquarius/logic');
+const national_platformLogic = require('./contragents/national_platform/logic');
 // Others...
 
 const usersMap = new Map()
@@ -68,6 +69,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
         [{ text: 'SystematicaBel', callback_data: 'systematica_bel' }],
         [{ text: 'NCC', callback_data: 'ncc' }],
         [{ text: 'AQUARIUS', callback_data: 'aquarius' }],
+        [{ text: 'National_platform', callback_data: 'national_platform' }],
       ]
     })
   };
@@ -92,6 +94,7 @@ lanmaxLogic(bot)
 systematica_belLogic(bot)
 nccLogic(bot)
 aquariusLogic(bot)
+national_platformLogic(bot)
 
 bot.onText(/\/total/, function(msg) {
   const options = {

@@ -2,6 +2,8 @@
 
 > See also: http://code-samples.space/notes/60de07185eed1167a96fea28
 
+_TODO: Грузить списки с Гугл Диска_
+
 ## Quick start
 
 ### `yarn && yarn start`
