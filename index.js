@@ -16,6 +16,7 @@ const ensysLogic = require('./contragents/ensys/logic')
 const rstLogic = require('./contragents/rst/logic')
 const scLogic = require('./contragents/systematica_consulting/logic');
 const dsLogic = require('./contragents/doverennay_sreda/logic');
+const topsBILogic = require('./contragents/tops_bi/logic');
 // Others...
 
 const usersMap = new Map()
@@ -58,6 +59,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
         [{ text: 'Ensys', callback_data: 'ensys' }],
         [{ text: 'Systematica Consulting', callback_data: 'systematica_consulting' }],
         [{ text: 'Doverennay_sreda', callback_data: 'doverennay_sreda' }],
+        [{ text: 'Tops BI', callback_data: 'tops_bi' }],
       ]
     })
   };
@@ -77,6 +79,7 @@ ensysLogic(bot)
 rstLogic(bot)
 scLogic(bot)
 dsLogic(bot)
+topsBILogic(bot)
 
 bot.onText(/\/total/, function(msg) {
   const options = {
