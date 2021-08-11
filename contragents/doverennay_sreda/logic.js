@@ -48,7 +48,7 @@ module.exports = (bot) => {
         bot.sendMessage(msg.chat.id, text);
         return
       case 'doverennay_sreda.presentations':
-        text = data.doverennay_sreda.presentations.general.sort(abSort).join('\n');
+        text = data.doverennay_sreda.presentations.sort(abSort).join('\n');
         bot.sendMessage(msg.chat.id, text);
         return
 
