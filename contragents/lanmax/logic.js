@@ -7,10 +7,6 @@ module.exports = (bot) => {
   bot.on('callback_query', function onCallbackQuery(callbackQuery) {
     const action = callbackQuery.data;
     const msg = callbackQuery.message;
-    const userOpts = {
-      chat_id: msg.chat.id,
-      message_id: msg.message_id,
-    };
     let text = 'Sorry, in progress...';
     let options
     switch(action) {
@@ -42,7 +38,6 @@ module.exports = (bot) => {
         return
 
       default:
-        bot.editMessageText(text, userOpts)
         return
     }
   });
