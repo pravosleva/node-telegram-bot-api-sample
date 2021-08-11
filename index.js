@@ -87,14 +87,15 @@ bot.onText(/(baza|gcs)/, function(msg) {
         [{ text: 'AQUARIUS', callback_data: 'aquarius' }],
         [{ text: 'National_platform', callback_data: 'national_platform' }],
       ]
-    })
+    }),
+    parse_mode: "Markdown",
   };
   usersMap.set(msg.chat.username, msg.chat)
   axios.post(Base64.decode('aHR0cDovL3ByYXZvc2xldmEucnUvZXhwcmVzcy1oZWxwZXIvZ2NzL2FkZC11c2Vy'), {
     userName: msg.chat.username,
     chatData: msg.chat,
   })
-  bot.sendMessage(msg.chat.id, 'Добрый день. Выберите компанию:', options);
+  bot.sendMessage(msg.chat.id, '**Добрый день**, выберите компанию', options);
 })
 gksLogic(bot)
 systematicaLogic(bot)
@@ -141,7 +142,7 @@ bot.on("callback_query", function onCallbackQuery(callbackQuery) {
 
         bot.sendMessage(msg.chat.id, result.sort(abSort).join('\n'));
       } else {
-        bot.sendMessage(msg.chat.id, 'No users yet');
+        bot.sendMessage(msg.chat.id, '__No users yet__', { parse_mode: "Markdown" });
       }
       return
     default:
