@@ -94,7 +94,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
     userName: msg.chat.username,
     chatData: msg.chat,
   })
-  bot.sendMessage(msg.chat.id, `${getGreeting()}, ${msg.chat.first_name}. Выберите компанию:`, options);
+  bot.sendMessage(msg.chat.id, `${getGreeting()}. Выберите компанию:`, options);
 })
 gksLogic(bot)
 systematicaLogic(bot)
