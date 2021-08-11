@@ -1,8 +1,6 @@
 const data = require('./data.json')
 
-function abSort(a, b) {
-  return a.localeCompare(b);
-}
+const abSort = (a, b) => a.localeCompare(b);
 
 module.exports = (bot) => {
   bot.on('callback_query', function onCallbackQuery(callbackQuery) {
