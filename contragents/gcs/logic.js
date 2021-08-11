@@ -17,13 +17,13 @@ module.exports = (bot) => {
     let options
     switch(action) {
       case 'gcs':
-        text = 'Выберите компанию-дочку';
+        text = 'Выберите напрввление';
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
               [{ text: 'ГКС', callback_data: 'gcs.main' }],
               [{ text: 'ДКСБ', callback_data: 'gcs.dcsb' }],
-              [{ text: 'ПП', callback_data: 'gcs.pp' }]
+              [{ text: 'Пром Предприятия', callback_data: 'gcs.pp' }]
             ]
           })
         };
@@ -110,19 +110,29 @@ module.exports = (bot) => {
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
-              [{ text: 'Логотипы ДКСБ', callback_data: 'gcs.dcsb.logo' }],
               [{ text: 'Info ДКСБ', callback_data: 'gcs.dcsb.info' }],
+              [{ text: 'Profiles ДКСБ', callback_data: 'gcs.dcsb.profiles' }],
+              [{ text: 'Presentations ДКСБ', callback_data: 'gcs.dcsb.presentations' }],
+              [{ text: 'Materials', callback_data: 'gcs.dcsb.materials' }],
             ]
           })
         };
         bot.sendMessage(msg.chat.id, text, options);
         return
-      case 'gcs.dcsb.logo':
-        text = data.gcs.dcsb.logo.sort(abSort).join('\n');
-        bot.sendMessage(msg.chat.id, text);
-        return
       case 'gcs.dcsb.info':
         text = data.gcs.dcsb.info.sort(abSort).join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      case 'gcs.dcsb.profiles':
+        text = data.gcs.dcsb.profiles.sort(abSort).join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      case 'gcs.dcsb.presentations':
+        text = data.gcs.dcsb.presentations.sort(abSort).join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      case 'gcs.dcsb.materials':
+        text = data.gcs.dcsb.materials.sort(abSort).join('\n');
         bot.sendMessage(msg.chat.id, text);
         return
 

@@ -54,8 +54,22 @@
     },
     "dcsb": {
       "info": [
-        "dcsb info1 - https://yandex.ru",
-        "dcsb info2 - https://google.com"
+        "Информационный блок - https://docs.google.com/document/d/1jQRQpfieZMsxy7YGOLsKrrZtvkrA5H9t/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true"
+      ],
+      "profiles": [
+        "Профайл.docx - https://docs.google.com/document/d/1I-M1vCw0LQKKF46YLzwGPsg7Yr-LRvw8/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true"
+      ],
+      "presentations": [
+        "Комплексная безопасность.pptx - https://docs.google.com/presentation/d/1PxkNDnKqf2CNMzeMo5kdp8Q4HZl3abAM/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true",
+		    "Ксеон Смарт.pdf - https://drive.google.com/file/d/1nAoBow8Zyqai2BUU0pIC45xUd841CtOs/view?usp=sharing",
+		    "Подземные распределительные системы.pdf - https://drive.google.com/file/d/13C_WUEnVtpyW2YZcK9C51iY5AwlfMtnT/view?usp=sharing",
+		    "Обеспечение безопасти и цифровизация ТЭК.pdf - https://drive.google.com/file/d/12k6c4qj-52_Sgqgj7vvzojUL4kzS4yIj/view?usp=sharing",	
+		    "Моделирование транспортных и пешеходных потоков - https://docs.google.com/presentation/d/1URBsK9Y4nG9c2yKfYKcwEAw1BlWQvSom/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true"
+      ],
+      "materials": [
+        "Буклет.pdf - https://yandex.ru",
+		    "Ролик общий - https://www.youtube.com/watch?v=t5KD8ejyklw",
+		    "Ролик промыш - https://www.youtube.com/watch?v=iThFEirzzdE&t"
       ],
       "logo": [
         "dcsb logo1 - https://yandex.ru",
