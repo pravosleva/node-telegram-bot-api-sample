@@ -10,6 +10,7 @@ const abSort = (a, b) => a.localeCompare(b)
 const gksLogic = require('./contragents/gcs/logic')
 const systematicaLogic = require('./contragents/systematica/logic')
 const slLogic = require('./contragents/step_logic/logic')
+const hpLogic = require('./contragents/haed_point/logic')
 // Others...
 
 const usersMap = new Map()
@@ -60,6 +61,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
 gksLogic(bot)
 systematicaLogic(bot)
 slLogic(bot)
+hpLogic(bot)
 
 bot.onText(/\/total/, function(msg) {
   const options = {
