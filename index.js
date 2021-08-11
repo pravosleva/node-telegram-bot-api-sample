@@ -19,6 +19,7 @@ const dsLogic = require('./contragents/doverennay_sreda/logic');
 const topsBILogic = require('./contragents/tops_bi/logic');
 const lanmaxLogic = require('./contragents/lanmax/logic');
 const systematica_belLogic = require('./contragents/systematica_bel/logic');
+const nccLogic = require('./contragents/nss/logic');
 // Others...
 
 const usersMap = new Map()
@@ -64,6 +65,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
         [{ text: 'Tops BI', callback_data: 'tops_bi' }],
         [{ text: 'Lanmax', callback_data: 'lanmax' }],
         [{ text: 'SystematicaBel', callback_data: 'systematica_bel' }],
+        [{ text: 'NCC', callback_data: 'ncc' }],
       ]
     })
   };
@@ -86,6 +88,7 @@ dsLogic(bot)
 topsBILogic(bot)
 lanmaxLogic(bot)
 systematica_belLogic(bot)
+nccLogic(bot)
 
 bot.onText(/\/total/, function(msg) {
   const options = {
