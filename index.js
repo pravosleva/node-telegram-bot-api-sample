@@ -81,7 +81,7 @@ bot.on("callback_query", function onCallbackQuery(callbackQuery) {
 
   switch (action) {
     case 'total-users-counter':
-      bot.sendMessage(msg.chat.id, String(usersMap.size));
+      bot.sendMessage(msg.chat.id, `${usersMap.size} пользователей (с момента последней перезагрузки бота)`);
       return
     case 'total-user-names':
       if (usersMap.size > 0) {
@@ -90,7 +90,7 @@ bot.on("callback_query", function onCallbackQuery(callbackQuery) {
         for (let [userName, chatData] of usersMap) {
           result.push(`@${userName}, ${chatData.id}`)
         }
-        
+
         bot.sendMessage(msg.chat.id, result.sort(abSort).join('\n'));
       } else {
         bot.sendMessage(msg.chat.id, 'No users yet');
