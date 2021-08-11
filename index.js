@@ -8,6 +8,8 @@ const abSort = (a, b) => a.localeCompare(b)
 
 // CONTRAGENTS:
 const gksLogic = require('./contragents/gcs/logic')
+const systematicaLogic = require('./contragents/systematica/logic')
+const slLogic = require('./contragents/step_logic/logic')
 // Others...
 
 const usersMap = new Map()
@@ -43,8 +45,8 @@ bot.onText(/(baza|gcs)/, function(msg) {
     reply_markup: JSON.stringify({
       inline_keyboard: [
         [{ text: 'ГКС', callback_data: 'gcs' }],
-        // [{ text: 'Триафлай', callback_data: 'triafly' }],
-        // [{ text: 'ДС', callback_data: 'ds' }]
+        [{ text: 'Systematica', callback_data: 'systematica' }],
+        [{ text: 'STEP LOGIC', callback_data: 'step_logic' }],
       ]
     })
   };
@@ -56,6 +58,8 @@ bot.onText(/(baza|gcs)/, function(msg) {
   bot.sendMessage(msg.chat.id, "Добрый день, выберите компанию", options);
 })
 gksLogic(bot)
+systematicaLogic(bot)
+slLogic(bot)
 
 bot.onText(/\/total/, function(msg) {
   const options = {

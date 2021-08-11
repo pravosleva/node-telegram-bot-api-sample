@@ -26,14 +26,12 @@ module.exports = (bot) => {
               [{ text: 'Blanks', callback_data: 'systematica.blanks' }],
               [{ text: 'Profiles', callback_data: 'systematica.profiles' }],
               [{ text: 'Presentations', callback_data: 'systematica.presentations' }],
-              // [{ text: 'ДКСБ', callback_data: 'gcs.dcsb' }],
             ]
           })
         };
         bot.sendMessage(msg.chat.id, text, options);
         return
 
-      // 1. Info
       case 'systematica.info':
         text = data.systematica.info.sort(abSort).join('\n');
         bot.sendMessage(msg.chat.id, text);
