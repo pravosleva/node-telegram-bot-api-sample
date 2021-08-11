@@ -14,7 +14,8 @@ const hpLogic = require('./contragents/haed_point/logic')
 const landataLogic = require('./contragents/landata/logic')
 const ensysLogic = require('./contragents/ensys/logic')
 const rstLogic = require('./contragents/rst/logic')
-const scLogic = require('./contragents/systematica_consulting/logic')
+const scLogic = require('./contragents/systematica_consulting/logic');
+const dsLogic = require('./contragents/doverennay_sreda/logic');
 // Others...
 
 const usersMap = new Map()
@@ -56,6 +57,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
         [{ text: 'Landata', callback_data: 'landata' }],
         [{ text: 'Ensys', callback_data: 'ensys' }],
         [{ text: 'Systematica Consulting', callback_data: 'systematica_consulting' }],
+        [{ text: 'Doverennay_sreda', callback_data: 'doverennay_sreda' }],
       ]
     })
   };
@@ -74,6 +76,7 @@ landataLogic(bot)
 ensysLogic(bot)
 rstLogic(bot)
 scLogic(bot)
+dsLogic(bot)
 
 bot.onText(/\/total/, function(msg) {
   const options = {
