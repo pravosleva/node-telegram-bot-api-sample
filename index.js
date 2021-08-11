@@ -71,7 +71,7 @@ bot.onText(/\/echo (.+)/, function (msg, match) {
 bot.onText(/(baza|gcs)/, function(msg) {
   const options = {
     reply_markup: JSON.stringify({
-      inline_keyboard: [
+      keyboard: [
         [{ text: 'ГКС', callback_data: 'gcs' }],
         [{ text: 'Systematica', callback_data: 'systematica' }],
         [{ text: 'STEP LOGIC', callback_data: 'step_logic' }],
