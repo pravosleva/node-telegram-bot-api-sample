@@ -48,6 +48,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
         [{ text: 'ГКС', callback_data: 'gcs' }],
         [{ text: 'Systematica', callback_data: 'systematica' }],
         [{ text: 'STEP LOGIC', callback_data: 'step_logic' }],
+        [{ text: 'HaedPoint', callback_data: 'haed_point' }],
       ]
     })
   };
