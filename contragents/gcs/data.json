@@ -70,15 +70,19 @@
         "Буклет.pdf - https://yandex.ru",
 		    "Ролик общий - https://www.youtube.com/watch?v=t5KD8ejyklw",
 		    "Ролик промыш - https://www.youtube.com/watch?v=iThFEirzzdE&t"
-      ],
-      "logo": [
-        "dcsb logo1 - https://yandex.ru",
-        "dcsb logo2 - https://google.com"
       ]
     },
     "pp": {
       "info": [
-        "pp huinya - https://yandex.ru"
+        "Информационный блок - https://docs.google.com/document/d/1YZ-fgESV33YGOMcRpS_CoLem-aeqZOdw/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true"
+      ],
+      "presentations": [
+        "Промышленность.pptx - https://docs.google.com/presentation/d/1FqO6SsxlglyyeAadNYSJp44T-LI8eomV/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true",
+		    "KUKA.pptx - https://docs.google.com/presentation/d/1pRTfw0YIXlmGOEboESM5Ioy0fKiv-DXd/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true",
+		    "СПЕКТР.pptx - https://docs.google.com/presentation/d/1LJn6tdHvtOM2-Ti1hUEZ3Rj88PHaigQU/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true"
+      ],
+      "materials": [
+        "Лифлет.pdf - https://drive.google.com/file/d/12vkC_gJFOjKtDM_qHBuBfXMGZmMHu0dt/view?usp=sharing"
       ]
     }
   }

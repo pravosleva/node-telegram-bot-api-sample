@@ -17,13 +17,13 @@ module.exports = (bot) => {
     let options
     switch(action) {
       case 'gcs':
-        text = 'Выберите напрввление';
+        text = 'Выберите направление';
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
               [{ text: 'ГКС', callback_data: 'gcs.main' }],
               [{ text: 'ДКСБ', callback_data: 'gcs.dcsb' }],
-              [{ text: 'Пром Предприятия', callback_data: 'gcs.pp' }]
+              [{ text: 'Пром_предприятия', callback_data: 'gcs.pp' }]
             ]
           })
         };
@@ -142,7 +142,9 @@ module.exports = (bot) => {
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
-              [{ text: 'Info ПП', callback_data: 'gcs.pp.info' }],
+              [{ text: 'Info', callback_data: 'gcs.pp.info' }],
+              [{ text: 'Presentations', callback_data: 'gcs.pp.presentations' }],
+              [{ text: 'Materials', callback_data: 'gcs.pp.materials' }],
             ]
           })
         };
@@ -152,6 +154,15 @@ module.exports = (bot) => {
         text = data.gcs.pp.info.sort(abSort).join('\n');
         bot.sendMessage(msg.chat.id, text);
         return
+      case 'gcs.pp.presentations':
+        text = data.gcs.pp.presentations.sort(abSort).join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      case 'gcs.pp.materials':
+        text = data.gcs.pp.materials.sort(abSort).join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+
       default:
         bot.editMessageText(text, userOpts)
         return
