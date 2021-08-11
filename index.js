@@ -11,6 +11,7 @@ const gksLogic = require('./contragents/gcs/logic')
 const systematicaLogic = require('./contragents/systematica/logic')
 const slLogic = require('./contragents/step_logic/logic')
 const hpLogic = require('./contragents/haed_point/logic')
+const landataLogic = require('./contragents/landata/logic')
 // Others...
 
 const usersMap = new Map()
@@ -49,6 +50,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
         [{ text: 'Systematica', callback_data: 'systematica' }],
         [{ text: 'STEP LOGIC', callback_data: 'step_logic' }],
         [{ text: 'HaedPoint', callback_data: 'haed_point' }],
+        [{ text: 'Landata', callback_data: 'landata' }],
       ]
     })
   };
@@ -63,6 +65,7 @@ gksLogic(bot)
 systematicaLogic(bot)
 slLogic(bot)
 hpLogic(bot)
+landataLogic(bot)
 
 bot.onText(/\/total/, function(msg) {
   const options = {
