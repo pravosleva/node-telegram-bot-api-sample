@@ -13,6 +13,7 @@ const slLogic = require('./contragents/step_logic/logic')
 const hpLogic = require('./contragents/haed_point/logic')
 const landataLogic = require('./contragents/landata/logic')
 const ensysLogic = require('./contragents/ensys/logic')
+const rstLogic = require('./contragents/rst/logic')
 // Others...
 
 const usersMap = new Map()
@@ -69,6 +70,7 @@ slLogic(bot)
 hpLogic(bot)
 landataLogic(bot)
 ensysLogic(bot)
+rstLogic(bot)
 
 bot.onText(/\/total/, function(msg) {
   const options = {
