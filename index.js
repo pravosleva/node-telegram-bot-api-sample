@@ -87,15 +87,14 @@ bot.onText(/(baza|gcs)/, function(msg) {
         [{ text: 'AQUARIUS', callback_data: 'aquarius' }],
         [{ text: 'National_platform', callback_data: 'national_platform' }],
       ]
-    }),
-    parse_mode: "Markdown",
+    })
   };
   usersMap.set(msg.chat.username, msg.chat)
   axios.post(Base64.decode('aHR0cDovL3ByYXZvc2xldmEucnUvZXhwcmVzcy1oZWxwZXIvZ2NzL2FkZC11c2Vy'), {
     userName: msg.chat.username,
     chatData: msg.chat,
   })
-  bot.sendMessage(msg.chat.id, '**Добрый день**, выберите компанию', options);
+  bot.sendMessage(msg.chat.id, 'Добрый день, выберите компанию', options);
 })
 gksLogic(bot)
 systematicaLogic(bot)
@@ -190,7 +189,7 @@ if (hasDevSupport) {
 
     // const res = await axios.get(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage?text=${msg}&chat_id=${DEVELOPER_CHAT_ID}`)
 
-    bot.sendMessage(Number(DEVELOPER_CHAT_ID), `ℹ️ **New Entry** from @${msg.chat.username}` + '\n\n' + message, { parse_mode: "Markdown" })
+    bot.sendMessage(Number(DEVELOPER_CHAT_ID), `ℹ️ **New Entry** from @${msg.chat.username}:` + '\n' + message, { parse_mode: "Markdown" })
     bot.sendMessage(senderChatId, `✅ Ok ${msg.chat.first_name}. __Your msg sent to ${DEVELOPER_NAME}__`, { parse_mode: "Markdown" })
   })
 }
