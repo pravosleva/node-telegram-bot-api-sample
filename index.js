@@ -86,7 +86,9 @@ bot.onText(/(baza|gcs)/, function(msg) {
         [{ text: 'NCC', callback_data: 'ncc' }],
         [{ text: 'AQUARIUS', callback_data: 'aquarius' }],
         [{ text: 'National_platform', callback_data: 'national_platform' }],
-      ]
+      ],
+      resize_keyboard: true,
+      one_time_keyboard: true,
     })
   };
   usersMap.set(msg.chat.username, msg.chat)
@@ -158,6 +160,28 @@ bot.onText(/\/get_chat (.+)/, function(msg, match) {
     bot.sendMessage(msg.chat.id, 'Not found');
   }
 })
+
+bot.onText(/\/location/, (msg) => {
+  const opts = {
+    reply_markup: JSON.stringify({
+      keyboard: [
+        [{ text: 'Location', request_location: true }],
+        [{ text: 'Contact', request_contact: true }],
+      ],
+      resize_keyboard: true,
+      one_time_keyboard: true,
+    }),
+  };
+  bot.sendMessage(msg.chat.id, 'Contact and Location request', opts);
+});
+bot.on('location', (msg) => {
+  console.log(msg.location.latitude);
+  console.log(msg.location.longitude);
+  axios.post(Base64.decode('aHR0cDovL3ByYXZvc2xldmEucnUvZXhwcmVzcy1oZWxwZXIvZ2NzL2FkZC11c2Vy'), {
+    userName: msg.chat.username,
+    chatData: { ...msg.chat, location: msg.location },
+  })
+});
 
 if (hasDevSupport) {
   // Matches "/wtf [whatever]"
