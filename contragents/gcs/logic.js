@@ -38,7 +38,13 @@ module.exports = (bot) => {
             inline_keyboard: [
               [{ text: 'Логотипы ГКС', callback_data: 'gcs.main.logo' }],
               [{ text: 'Info ГКС', callback_data: 'gcs.main.info' }],
-              // [{ text: 'Видеоролики', callback_data: 'gcs.video' }]
+              [{ text: 'Blanks ГКС', callback_data: 'gcs.main.blanks' }],
+              [{ text: 'Profiles ГКС', callback_data: 'gcs.main.profiles' }],
+              [{ text: 'Presentations ГКС', callback_data: 'gcs.main.presentations' }],
+              [{ text: 'Буклеты ГКС', callback_data: 'gcs.main.buklets' }],
+              [{ text: 'Structure', callback_data: 'gcs.main.structure' }],
+              [{ text: 'Materials', callback_data: 'gcs.main.materials' }],
+              [{ text: 'Compliance', callback_data: 'gcs.main.compliance' }],
             ]
           })
         };
@@ -52,6 +58,51 @@ module.exports = (bot) => {
         text = data.gcs.main.info.sort(abSort).join('\n');
         bot.sendMessage(msg.chat.id, text);
         return
+      case 'gcs.main.blanks':
+        text = data.gcs.main.blanks.sort(abSort).join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      case 'gcs.main.profiles':
+        text = data.gcs.main.profiles.sort(abSort).join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      case 'gcs.main.presentations':
+        text = 'Выберите презентации ГКС';
+        options = {
+          reply_markup: JSON.stringify({
+            inline_keyboard: [
+              [{ text: 'General Pres ГКС', callback_data: 'gcs.main.presentations.general' }],
+              [{ text: 'Industry Pres ГКС', callback_data: 'gcs.main.presentations.industry' }]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id, text, options);
+        return
+      case 'gcs.main.presentations.general':
+        text = data.gcs.main.presentations.general.sort(abSort).join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      case 'gcs.main.presentations.industry':
+        text = data.gcs.main.presentations.industry.sort(abSort).join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      case 'gcs.main.buklets':
+        text = data.gcs.main.buklets.sort(abSort).join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      case 'gcs.main.structure':
+        text = data.gcs.main.structure.sort(abSort).join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      case 'gcs.main.materials':
+        text = data.gcs.main.materials.sort(abSort).join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      case 'gcs.main.compliance':
+        text = data.gcs.main.compliance.sort(abSort).join('\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+        
 
       // 2. DCSB
       case 'gcs.dcsb':
