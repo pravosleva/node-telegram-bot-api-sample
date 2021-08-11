@@ -19,7 +19,7 @@ const dsLogic = require('./contragents/doverennay_sreda/logic');
 const topsBILogic = require('./contragents/tops_bi/logic');
 const lanmaxLogic = require('./contragents/lanmax/logic');
 const systematica_belLogic = require('./contragents/systematica_bel/logic');
-const nccLogic = require('./contragents/nss/logic');
+const nccLogic = require('./contragents/ncc/logic');
 const aquariusLogic = require('./contragents/aquarius/logic');
 const national_platformLogic = require('./contragents/national_platform/logic');
 // Others...
