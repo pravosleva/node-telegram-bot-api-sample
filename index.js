@@ -88,7 +88,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
         [{ text: 'National_platform', callback_data: 'national_platform' }],
       ],
       resize_keyboard: true,
-      one_time_keyboard: true,
+      one_time_keyboard: false,
     })
   };
   usersMap.set(msg.chat.username, msg.chat)
