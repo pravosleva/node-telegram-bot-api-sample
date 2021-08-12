@@ -26,15 +26,15 @@ module.exports = (bot) => {
 
       case 'lanmax.info':
         text = data.lanmax.info.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'lanmax.logo':
         text = data.lanmax.logo.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'lanmax.profiles':
         text = data.lanmax.profiles.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
 
       default:

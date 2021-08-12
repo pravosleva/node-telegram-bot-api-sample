@@ -57,16 +57,16 @@ module.exports = (bot) => {
         return
       case 'systematica_consulting.presentations.general':
         text = data.systematica_consulting.presentations.general.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'systematica_consulting.presentations.industry':
         text = data.systematica_consulting.presentations.industry.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
 
       case 'systematica_consulting.materials':
         text = data.systematica_consulting.materials.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
 
       default:

@@ -28,23 +28,23 @@ module.exports = (bot) => {
 
       case 'ncc.info':
         text = data.ncc.info.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'ncc.logo':
         text = data.ncc.logo.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'ncc.blanks':
         text = data.ncc.blanks.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'ncc.profiles':
         text = data.ncc.profiles.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'ncc.presentations':
         text = data.ncc.presentations.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
 
       default:

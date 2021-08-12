@@ -25,11 +25,11 @@ module.exports = (bot) => {
 
       case 'systematica_bel.logo':
         text = data.systematica_bel.logo.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'systematica_bel.blanks':
         text = data.systematica_bel.blanks.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
 
       default:
