@@ -11,7 +11,7 @@ module.exports = (bot) => {
     let options
     switch(action) {
       case 'national_platform':
-        text = 'Выберите материалы National_platform';
+        text = 'Выберите материалы Национальная плптформа';
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [

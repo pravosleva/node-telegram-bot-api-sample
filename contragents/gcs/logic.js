@@ -65,8 +65,7 @@ module.exports = (bot) => {
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
-              [{ text: 'General Pres ГКС', callback_data: 'gcs.main.presentations.general' }],
-              [{ text: 'Industry Pres ГКС', callback_data: 'gcs.main.presentations.industry' }]
+              [{ text: 'General', callback_data: 'gcs.main.presentations.general' }, { text: 'Industry', callback_data: 'gcs.main.presentations.industry' }],
             ]
           })
         };
