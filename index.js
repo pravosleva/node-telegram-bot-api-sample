@@ -161,6 +161,7 @@ bot.onText(/\/help/, function(msg, match) {
   const arr = [
     '/menu - список компаний',
   ]
+  if (hasDevSupport) arr.push('/wtf [сообщение] - отправить сообщение разработчику')
   const helpMD = arr.join('\n\n')
 
   bot.sendMessage(msg.chat.id, helpMD, { parse_mode: "Markdown" });
