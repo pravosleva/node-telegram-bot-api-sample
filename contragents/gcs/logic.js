@@ -17,7 +17,7 @@ module.exports = (bot) => {
             inline_keyboard: [
               [{ text: 'ГКС', callback_data: 'gcs.main' }],
               [{ text: 'ДКСБ', callback_data: 'gcs.dcsb' }],
-              [{ text: 'Пром_предприятия', callback_data: 'gcs.pp' }]
+              [{ text: 'Промышленные предприятия', callback_data: 'gcs.pp' }]
             ]
           })
         };
