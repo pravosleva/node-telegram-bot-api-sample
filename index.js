@@ -52,7 +52,7 @@ bot.onText(/\/echo (.+)/, function (msg, match) {
   bot.sendMessage(chatId, resp)
 })
 
-bot.onText(/(\/menu|\/baza|baza|gcs)/, function(msg) {
+bot.onText(/(\/menu|Menu|\/baza|Baza|gcs)/, function(msg) {
   const options = {
     reply_markup: JSON.stringify({
       inline_keyboard: [
@@ -63,7 +63,7 @@ bot.onText(/(\/menu|\/baza|baza|gcs)/, function(msg) {
         [{ text: 'Доверенная среда', callback_data: 'doverennay_sreda' }, { text: 'Tops BI', callback_data: 'tops_bi' }],
         [{ text: 'Lanmax', callback_data: 'lanmax' }, { text: 'СистематикаБел', callback_data: 'systematica_bel' }],
         [{ text: 'НКК', callback_data: 'ncc' }, { text: 'AQUARIUS', callback_data: 'aquarius' }],
-        [{ text: 'Национальная плптформа', callback_data: 'national_platform' }],
+        [{ text: 'Национальная платформа', callback_data: 'national_platform' }],
       ],
     })
   };
