@@ -90,12 +90,12 @@ nccLogic(bot)
 aquariusLogic(bot)
 national_platformLogic(bot)
 
-bot.onText(/\/total/, function(msg) {
+bot.onText(/\/users/, function(msg) {
   const options = {
     reply_markup: JSON.stringify({
       inline_keyboard: [
-        [{ text: 'Users counter', callback_data: 'total-users-counter' }],
-        [{ text: 'User names', callback_data: 'total-user-names' }],
+        [{ text: 'Users counter', callback_data: 'users-counter' }],
+        [{ text: 'User names', callback_data: 'user-names' }],
       ]
     })
   };
@@ -106,10 +106,10 @@ bot.on("callback_query", function onCallbackQuery(callbackQuery) {
   const msg = callbackQuery.message;
 
   switch (action) {
-    case 'total-users-counter':
+    case 'users-counter':
       bot.sendMessage(msg.chat.id, `${usersMap.size} пользователей (с момента последней перезагрузки бота)`);
       return
-    case 'total-user-names':
+    case 'user-names':
       if (usersMap.size > 0) {
         // const names = [...usersMap.keys()]
         const result = []
@@ -117,7 +117,7 @@ bot.on("callback_query", function onCallbackQuery(callbackQuery) {
           result.push(`@${userName}, ${chatData.id}`)
         }
 
-        bot.sendMessage(msg.chat.id, result.sort(abSort).join('\n'));
+        bot.sendMessage(msg.chat.id, result.sort(abSort).join('\n\n'));
       } else {
         bot.sendMessage(msg.chat.id, '__No users yet__', { parse_mode: "Markdown" });
       }
@@ -141,8 +141,7 @@ bot.onText(/\/location/, (msg) => {
   const opts = {
     reply_markup: JSON.stringify({
       keyboard: [
-        [{ text: 'Location', request_location: true }],
-        [{ text: 'Contact', request_contact: true }],
+        [{ text: 'Location', request_location: true }, { text: 'Contact', request_contact: true }],
       ],
       resize_keyboard: true,
       one_time_keyboard: true,
