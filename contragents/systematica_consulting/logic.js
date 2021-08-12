@@ -60,7 +60,7 @@ module.exports = (bot) => {
         bot.sendMessage(msg.chat.id, text);
         return
       case 'systematica_consulting.presentations.industry':
-        text = data.systematica_consulting.presentations.industry.sort(abSort).join('\n---\n');
+        text = data.systematica_consulting.presentations.industry.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
 
