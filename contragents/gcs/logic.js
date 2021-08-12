@@ -16,8 +16,8 @@ module.exports = (bot) => {
           reply_markup: JSON.stringify({
             inline_keyboard: [
               [{ text: 'ГКС', callback_data: 'gcs.main' }],
-              [{ text: 'ДКСБ', callback_data: 'gcs.dcsb' }],
-              [{ text: 'Промышленные предприятия', callback_data: 'gcs.pp' }]
+              [{ text: 'Комплексная безопасность', callback_data: 'gcs.dcsb' }],
+              [{ text: 'Цифровизация промышленных предприятий', callback_data: 'gcs.pp' }]
             ]
           })
         };
@@ -99,13 +99,13 @@ module.exports = (bot) => {
 
       // 2. DCSB
       case 'gcs.dcsb':
-        text = 'Выберите материалы ДКСБ';
+        text = 'Выберите материалы';
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
-              [{ text: 'Info ДКСБ', callback_data: 'gcs.dcsb.info' }],
-              [{ text: 'Profiles ДКСБ', callback_data: 'gcs.dcsb.profiles' }],
-              [{ text: 'Presentations ДКСБ', callback_data: 'gcs.dcsb.presentations' }],
+              [{ text: 'Info', callback_data: 'gcs.dcsb.info' }],
+              [{ text: 'Profiles', callback_data: 'gcs.dcsb.profiles' }],
+              [{ text: 'Presentations', callback_data: 'gcs.dcsb.presentations' }],
               [{ text: 'Materials', callback_data: 'gcs.dcsb.materials' }],
             ]
           })

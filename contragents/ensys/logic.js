@@ -11,7 +11,7 @@ module.exports = (bot) => {
     let options
     switch(action) {
       case 'ensys':
-        text = 'Выберите материалы Энсис';
+        text = 'Выберите материалы';
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
