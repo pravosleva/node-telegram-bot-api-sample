@@ -52,7 +52,7 @@ bot.onText(/\/echo (.+)/, function (msg, match) {
   bot.sendMessage(chatId, resp)
 })
 
-bot.onText(/(\/baza|baza|gcs)/, function(msg) {
+bot.onText(/(\/menu|\/baza|baza|gcs)/, function(msg) {
   const options = {
     reply_markup: JSON.stringify({
       inline_keyboard: [
@@ -156,6 +156,15 @@ bot.on('location', (msg) => {
     chatData: { ...msg.chat, location: msg.location },
   })
 });
+
+bot.onText(/\/help/, function(msg, match) {
+  const arr = [
+    '/menu - список компаний',
+  ]
+  const helpMD = arr.join('\n\n')
+
+  bot.sendMessage(msg.chat.id, helpMD, { parse_mode: "Markdown" });
+})
 
 if (hasDevSupport) {
   // Matches "/wtf [whatever]"
