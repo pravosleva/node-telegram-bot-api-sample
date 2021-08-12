@@ -32,7 +32,7 @@ module.exports = (bot) => {
         return
       case 'aquarius.logo':
         text = data.aquarius.logo.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'aquarius.profiles':
         text = data.aquarius.profiles.sort(abSort).join('\n\n');
