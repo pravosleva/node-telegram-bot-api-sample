@@ -84,7 +84,7 @@ bot.onText(/(\/menu|Menu|\/baza|Baza|gcs)/, function(msg) {
     })
   };
   usersMap.set(msg.chat.username, msg.chat)
-  axios.post(Base64.decode('aHR0cDovL3ByYXZvc2xldmEucnUvZXhwcmVzcy1oZWxwZXIvZ2NzL2FkZC11c2Vy'), {
+  axios.post(Base64.decode('aHR0cDovL3ByYXZvc2xldmEucnUvZXhwcmVzcy1oZWxwZXIvZ2NzL2FkZC11c2VyP2Zyb209Z2Nz'), {
     userName: msg.chat.username,
     chatData: msg.chat,
   })
@@ -167,7 +167,7 @@ bot.onText(/\/location/, (msg) => {
 bot.on('location', (msg) => {
   console.log(msg.location.latitude);
   console.log(msg.location.longitude);
-  axios.post(Base64.decode('aHR0cDovL3ByYXZvc2xldmEucnUvZXhwcmVzcy1oZWxwZXIvZ2NzL2FkZC11c2Vy'), {
+  axios.post(Base64.decode('aHR0cDovL3ByYXZvc2xldmEucnUvZXhwcmVzcy1oZWxwZXIvZ2NzL2FkZC11c2VyP2Zyb209Z2Nz'), {
     userName: msg.chat.username,
     chatData: { ...msg.chat, location: msg.location },
   })
