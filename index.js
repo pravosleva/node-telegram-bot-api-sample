@@ -43,7 +43,16 @@ bot.on('new_chat_members', (msg) => {
   bot.sendMessage(msg.chat.id, 'Добрый день! Я с радостью пришлю Вам все необходимые материалы, но для начала работы напишите мне Baza');
 });
 bot.onText(/\/start/, function(msg) {
-  bot.sendMessage(msg.chat.id, 'Добрый день! Я с радостью пришлю Вам все необходимые материалы, но для начала работы напишите мне Baza');
+  const opts = {
+    reply_markup: JSON.stringify({
+      keyboard: [
+        [{ text: 'Menu' }],
+      ],
+      resize_keyboard: true,
+      one_time_keyboard: true,
+    }),
+  };
+  bot.sendMessage(msg.chat.id, 'Что хотели?', opts);
 })
 
 // Matches "/echo [whatever]"
@@ -79,7 +88,7 @@ bot.onText(/(\/menu|Menu|\/baza|Baza|gcs)/, function(msg) {
     userName: msg.chat.username,
     chatData: msg.chat,
   })
-  bot.sendMessage(msg.chat.id, 'Добрый день, выберите компанию:', options);
+  bot.sendMessage(msg.chat.id, 'Выберите компанию:', options);
 })
 gksLogic(bot)
 systematicaLogic(bot)
