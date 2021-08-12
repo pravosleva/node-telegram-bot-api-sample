@@ -17,6 +17,7 @@ module.exports = (bot) => {
               [{ text: 'Info', callback_data: 'step_logic.info' }],
               [{ text: 'Logo', callback_data: 'step_logic.logo' }],
               [{ text: 'Profiles', callback_data: 'step_logic.profiles' }],
+              [{ text: 'Presentations', callback_data: 'step_logic.presentations' }],
               [{ text: 'Materials', callback_data: 'step_logic.materials' }],
             ]
           })
@@ -34,6 +35,10 @@ module.exports = (bot) => {
         return
       case 'step_logic.profiles':
         text = data.step_logic.profiles.sort(abSort).join('\n\n');
+        bot.sendMessage(msg.chat.id, text);
+        return
+      case 'step_logic.presentations':
+        text = data.step_logic.presentations.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'step_logic.materials':

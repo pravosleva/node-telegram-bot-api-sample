@@ -30,8 +30,10 @@ module.exports = (bot) => {
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
-              [{ text: 'Logo', callback_data: 'gcs.main.logo' }],
-              [{ text: 'Info', callback_data: 'gcs.main.info' }],
+              [
+                { text: 'Info', callback_data: 'gcs.main.info' },
+                { text: 'Logo', callback_data: 'gcs.main.logo' }
+              ],
               [{ text: 'Blanks', callback_data: 'gcs.main.blanks' }],
               [{ text: 'Profiles', callback_data: 'gcs.main.profiles' }],
               [{ text: 'Presentations', callback_data: 'gcs.main.presentations' }],
