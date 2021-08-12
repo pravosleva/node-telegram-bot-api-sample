@@ -17,7 +17,7 @@ module.exports = (bot) => {
             inline_keyboard: [
               [{ text: 'Info', callback_data: 'lanmax.info' }],
               [{ text: 'Logo', callback_data: 'lanmax.logo' }],
-              [{ text: 'Profiles', callback_data: 'lanmax.profiles' }],
+              [{ text: 'Profiles', callback_data: 'lanmax.presentations' }],
             ]
           })
         };
@@ -32,8 +32,8 @@ module.exports = (bot) => {
         text = data.lanmax.logo.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
-      case 'lanmax.profiles':
-        text = data.lanmax.profiles.sort(abSort).join('\n\n');
+      case 'lanmax.presentations':
+        text = data.lanmax.presentations.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
 

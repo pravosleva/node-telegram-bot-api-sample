@@ -28,7 +28,7 @@ module.exports = (bot) => {
 
       case 'aquarius.info':
         text = data.aquarius.info.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'aquarius.logo':
         text = data.aquarius.logo.sort(abSort).join('\n\n');
@@ -36,15 +36,15 @@ module.exports = (bot) => {
         return
       case 'aquarius.profiles':
         text = data.aquarius.profiles.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'aquarius.presentations':
         text = data.aquarius.presentations.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'aquarius.materials':
         text = data.aquarius.materials.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
 
       default:

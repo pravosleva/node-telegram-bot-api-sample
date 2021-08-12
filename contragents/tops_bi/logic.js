@@ -30,7 +30,7 @@ module.exports = (bot) => {
 
       case 'tops_bi.info':
         text = data.tops_bi.info.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text, { parse_mode: 'HTML' });
+        bot.sendMessage(msg.chat.id, text, { parse_mode: 'Markdown' });
         return
       case 'tops_bi.logo':
         text = data.tops_bi.logo.sort(abSort).join('\n\n');

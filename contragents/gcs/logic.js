@@ -48,19 +48,19 @@ module.exports = (bot) => {
         return
       case 'gcs.main.logo':
         text = data.gcs.main.logo.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'gcs.main.info':
         text = data.gcs.main.info.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'gcs.main.blanks':
         text = data.gcs.main.blanks.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'gcs.main.profiles':
         text = data.gcs.main.profiles.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'gcs.main.presentations':
         text = 'Выберите презентации ГКС';
@@ -75,7 +75,7 @@ module.exports = (bot) => {
         return
       case 'gcs.main.presentations.general':
         text = data.gcs.main.presentations.general.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'gcs.main.presentations.industry':
         text = data.gcs.main.presentations.industry.sort(abSort).join('\n\n');
@@ -83,19 +83,19 @@ module.exports = (bot) => {
         return
       case 'gcs.main.buklets':
         text = data.gcs.main.buklets.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'gcs.main.structure':
         text = data.gcs.main.structure.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'gcs.main.materials':
         text = data.gcs.main.materials.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'gcs.main.compliance':
         text = data.gcs.main.compliance.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
 
       // 2. DCSB
@@ -115,19 +115,19 @@ module.exports = (bot) => {
         return
       case 'gcs.dcsb.info':
         text = data.gcs.dcsb.info.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'gcs.dcsb.profiles':
         text = data.gcs.dcsb.profiles.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'gcs.dcsb.presentations':
         text = data.gcs.dcsb.presentations.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'gcs.dcsb.materials':
         text = data.gcs.dcsb.materials.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
 
       // 3. PP
@@ -146,15 +146,15 @@ module.exports = (bot) => {
         return
       case 'gcs.pp.info':
         text = data.gcs.pp.info.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'gcs.pp.presentations':
         text = data.gcs.pp.presentations.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'gcs.pp.materials':
         text = data.gcs.pp.materials.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
 
       default:
