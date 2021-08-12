@@ -29,19 +29,19 @@ module.exports = (bot) => {
 
       case 'systematica_consulting.info':
         text = data.systematica_consulting.info.sort(abSort).join('\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'systematica_consulting.logo':
         text = data.systematica_consulting.logo.sort(abSort).join('\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'systematica_consulting.blanks':
         text = data.systematica_consulting.blanks.sort(abSort).join('\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'systematica_consulting.profiles':
         text = data.systematica_consulting.profiles.sort(abSort).join('\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'systematica_consulting.presentations':
         text = 'Выберите презентации';
