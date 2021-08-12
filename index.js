@@ -94,8 +94,7 @@ bot.onText(/\/users/, function(msg) {
   const options = {
     reply_markup: JSON.stringify({
       inline_keyboard: [
-        [{ text: 'Users counter', callback_data: 'users-counter' }],
-        [{ text: 'User names', callback_data: 'user-names' }],
+        [{ text: 'Users counter', callback_data: 'users-counter' }, { text: 'User names', callback_data: 'user-names' }],
       ]
     })
   };
