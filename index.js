@@ -6,21 +6,21 @@ const { Base64 } = require('js-base64')
 require('dotenv').config({ path: path.join(__dirname, './.prod.env') })
 const abSort = (a, b) => a.localeCompare(b)
 
-const getGreeting = () => {
-  const data = [
-    [0, 4, "Доброй ночи"], 
-    [5, 11, "Доброе утро"],          //Store messages in an array
-    [12, 17, "Добрый день"],
-    [18, 24, "Добрый вечер"]
-  ];
-  const hrs = new Date().getHours();
-  let result = data[1][2];
+// const getGreeting = () => {
+//   const data = [
+//     [0, 4, "Доброй ночи"], 
+//     [5, 11, "Доброе утро"],          //Store messages in an array
+//     [12, 17, "Добрый день"],
+//     [18, 24, "Добрый вечер"]
+//   ];
+//   const hrs = new Date().getHours();
+//   let result = data[1][2];
 
-  for (let i = 0, max = data.length; i < max; i++) {
-    if (hrs >= data[i][0] && hr <= data[i][1]) result = data[i][2];
-  }
-  return result;
-}
+//   for (let i = 0, max = data.length; i < max; i++) {
+//     if (hrs >= data[i][0] && hr <= data[i][1]) result = data[i][2];
+//   }
+//   return result;
+// }
 
 // CONTRAGENTS:
 const gksLogic = require('./contragents/gcs/logic')
@@ -68,7 +68,7 @@ bot.onText(/\/echo (.+)/, function (msg, match) {
   bot.sendMessage(chatId, resp)
 })
 
-bot.onText(/(baza|gcs)/, function(msg) {
+bot.onText(/(\/baza|baza|gcs)/, function(msg) {
   const options = {
     reply_markup: JSON.stringify({
       inline_keyboard: [
@@ -88,8 +88,7 @@ bot.onText(/(baza|gcs)/, function(msg) {
     userName: msg.chat.username,
     chatData: msg.chat,
   })
-  const greeting = getGreeting()
-  bot.sendMessage(msg.chat.id, `${greeting}, выберите компанию`, options);
+  bot.sendMessage(msg.chat.id, 'Добрый день, выберите компанию:', options);
 })
 gksLogic(bot)
 systematicaLogic(bot)
