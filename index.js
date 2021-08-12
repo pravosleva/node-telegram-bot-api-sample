@@ -39,6 +39,13 @@ if (!Number.isNaN(Number(DEVELOPER_CHAT_ID)) && !!DEVELOPER_CHAT_ID) hasDevSuppo
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(TG_BOT_TOKEN, { polling: true })
 
+bot.on('new_chat_members', (msg) => {
+  bot.sendMessage(msg.chat.id, 'Добрый день! Я с радостью пришлю Вам все необходимые материалы, но для начала работы напишите мне Baza');
+});
+bot.onText(/\/start)/, function(msg) {
+  bot.sendMessage(msg.chat.id, 'Добрый день! Я с радостью пришлю Вам все необходимые материалы, но для начала работы напишите мне Baza');
+})
+
 // Matches "/echo [whatever]"
 bot.onText(/\/echo (.+)/, function (msg, match) {
   // 'msg' is the received Message from Telegram
@@ -157,7 +164,7 @@ bot.on('location', (msg) => {
   })
 });
 
-bot.onText(/\/help/, function(msg, match) {
+bot.onText(/\/help)/, function(msg, match) {
   const arr = [
     '/menu - список компаний',
   ]

@@ -97,7 +97,6 @@ module.exports = (bot) => {
         text = data.gcs.main.compliance.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
-        
 
       // 2. DCSB
       case 'gcs.dcsb':
