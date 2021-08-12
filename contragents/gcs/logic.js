@@ -79,7 +79,7 @@ module.exports = (bot) => {
         return
       case 'gcs.main.presentations.industry':
         text = data.gcs.main.presentations.industry.sort(abSort).join('\n\n');
-        bot.sendMessage(msg.chat.id, text);
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'gcs.main.buklets':
         text = data.gcs.main.buklets.sort(abSort).join('\n\n');
