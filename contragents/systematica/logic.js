@@ -27,23 +27,23 @@ module.exports = (bot) => {
         return
 
       case 'systematica.info':
-        text = data.systematica.info.sort(abSort).join('\n');
+        text = data.systematica.info.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'systematica.logo':
-        text = data.systematica.logo.sort(abSort).join('\n');
+        text = data.systematica.logo.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'systematica.blanks':
-        text = data.systematica.blanks.sort(abSort).join('\n');
+        text = data.systematica.blanks.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'systematica.profiles':
-        text = data.systematica.profiles.sort(abSort).join('\n');
+        text = data.systematica.profiles.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'systematica.presentations':
-        text = data.systematica.presentations.sort(abSort).join('\n');
+        text = data.systematica.presentations.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
 

@@ -25,15 +25,15 @@ module.exports = (bot) => {
         return
 
       case 'lanmax.info':
-        text = data.lanmax.info.sort(abSort).join('\n');
+        text = data.lanmax.info.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'lanmax.logo':
-        text = data.lanmax.logo.sort(abSort).join('\n');
+        text = data.lanmax.logo.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'lanmax.profiles':
-        text = data.lanmax.profiles.sort(abSort).join('\n');
+        text = data.lanmax.profiles.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
 

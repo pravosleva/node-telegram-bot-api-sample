@@ -25,19 +25,19 @@ module.exports = (bot) => {
         return
 
       case 'step_logic.info':
-        text = data.step_logic.info.sort(abSort).join('\n');
+        text = data.step_logic.info.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'step_logic.logo':
-        text = data.step_logic.logo.sort(abSort).join('\n');
+        text = data.step_logic.logo.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'step_logic.profiles':
-        text = data.step_logic.profiles.sort(abSort).join('\n');
+        text = data.step_logic.profiles.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'step_logic.materials':
-        text = data.step_logic.materials.sort(abSort).join('\n');
+        text = data.step_logic.materials.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
 

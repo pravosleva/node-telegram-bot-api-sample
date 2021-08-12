@@ -29,15 +29,15 @@ module.exports = (bot) => {
         return
 
       case 'tops_bi.info':
-        text = data.tops_bi.info.sort(abSort).join('\n');
+        text = data.tops_bi.info.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text, { parse_mode: 'HTML' });
         return
       case 'tops_bi.logo':
-        text = data.tops_bi.logo.sort(abSort).join('\n');
+        text = data.tops_bi.logo.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'tops_bi.blanks':
-        text = data.tops_bi.blanks.sort(abSort).join('\n');
+        text = data.tops_bi.blanks.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
 

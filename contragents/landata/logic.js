@@ -27,23 +27,23 @@ module.exports = (bot) => {
         return
 
       case 'landata.info':
-        text = data.landata.info.sort(abSort).join('\n');
+        text = data.landata.info.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'landata.logo':
-        text = data.landata.logo.sort(abSort).join('\n');
+        text = data.landata.logo.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'landata.blanks':
-        text = data.landata.blanks.sort(abSort).join('\n');
+        text = data.landata.blanks.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'landata.profiles':
-        text = data.landata.profiles.sort(abSort).join('\n');
+        text = data.landata.profiles.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'landata.presentations':
-        text = data.landata.presentations.sort(abSort).join('\n');
+        text = data.landata.presentations.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
 

@@ -27,23 +27,23 @@ module.exports = (bot) => {
         return
 
       case 'ncc.info':
-        text = data.ncc.info.sort(abSort).join('\n');
+        text = data.ncc.info.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'ncc.logo':
-        text = data.ncc.logo.sort(abSort).join('\n');
+        text = data.ncc.logo.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'ncc.blanks':
-        text = data.ncc.blanks.sort(abSort).join('\n');
+        text = data.ncc.blanks.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'ncc.profiles':
-        text = data.ncc.profiles.sort(abSort).join('\n');
+        text = data.ncc.profiles.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'ncc.presentations':
-        text = data.ncc.presentations.sort(abSort).join('\n');
+        text = data.ncc.presentations.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
 

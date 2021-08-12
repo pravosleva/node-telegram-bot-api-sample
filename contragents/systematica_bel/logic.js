@@ -24,11 +24,11 @@ module.exports = (bot) => {
         return
 
       case 'systematica_bel.logo':
-        text = data.systematica_bel.logo.sort(abSort).join('\n');
+        text = data.systematica_bel.logo.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
       case 'systematica_bel.blanks':
-        text = data.systematica_bel.blanks.sort(abSort).join('\n');
+        text = data.systematica_bel.blanks.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text);
         return
 
