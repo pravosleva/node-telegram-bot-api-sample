@@ -72,14 +72,13 @@ bot.onText(/(baza|gcs)/, function(msg) {
   const options = {
     reply_markup: JSON.stringify({
       inline_keyboard: [
-        [{ text: 'ГКС', callback_data: 'gcs' }, { text: 'Systematica', callback_data: 'systematica' }],
-        [{ text: 'STEP LOGIC', callback_data: 'step_logic' }, { text: 'HaedPoint', callback_data: 'haed_point' }],
-        [{ text: 'Landata', callback_data: 'landata' }, { text: 'Ensys', callback_data: 'ensys' }],
-        [{ text: 'Systematica Consulting', callback_data: 'systematica_consulting' }],
-        [{ text: 'Doverennay_sreda', callback_data: 'doverennay_sreda' }],
-        [{ text: 'Tops BI', callback_data: 'tops_bi' }, { text: 'Lanmax', callback_data: 'lanmax' }],
-        [{ text: 'SystematicaBel', callback_data: 'systematica_bel' }, { text: 'NCC', callback_data: 'ncc' }],
-        [{ text: 'AQUARIUS', callback_data: 'aquarius' }],
+        [{ text: 'ГКС', callback_data: 'gcs' }],
+        [{ text: 'Systematica', callback_data: 'systematica' }, { text: 'STEP LOGIC', callback_data: 'step_logic' }],
+        [{ text: 'HaedPoint', callback_data: 'haed_point' }, { text: 'Landata', callback_data: 'landata' }],
+        [{ text: 'Ensys', callback_data: 'ensys' }, { text: 'Systematica Consulting', callback_data: 'systematica_consulting' }],
+        [{ text: 'Doverennay_sreda', callback_data: 'doverennay_sreda' }, { text: 'Tops BI', callback_data: 'tops_bi' }],
+        [{ text: 'Lanmax', callback_data: 'lanmax' }, { text: 'SystematicaBel', callback_data: 'systematica_bel' }],
+        [{ text: 'NCC', callback_data: 'ncc' }, { text: 'AQUARIUS', callback_data: 'aquarius' }],
         [{ text: 'National_platform', callback_data: 'national_platform' }],
       ],
     })
