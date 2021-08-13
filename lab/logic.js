@@ -4,7 +4,7 @@ let hasDevSupport = false
 if (!Number.isNaN(Number(DEVELOPER_CHAT_ID)) && !!DEVELOPER_CHAT_ID) hasDevSupport = true
 
 const abSort = (a, b) => a.localeCompare(b)
-const loadedTime = new Date().getUTCDate()
+const loadedTime = new Date().toLocaleString()
 
 module.exports = (bot, usersMap) => {
   bot.onText(/\/users/, function(msg) {
