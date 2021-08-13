@@ -4,6 +4,7 @@ let hasDevSupport = false
 if (!Number.isNaN(Number(DEVELOPER_CHAT_ID)) && !!DEVELOPER_CHAT_ID) hasDevSupport = true
 
 const abSort = (a, b) => a.localeCompare(b)
+const loadedTime = new Date().getUTCDate()
 
 module.exports = (bot, usersMap) => {
   bot.onText(/\/users/, function(msg) {
@@ -22,7 +23,7 @@ module.exports = (bot, usersMap) => {
 
     switch (action) {
       case 'users-counter':
-        bot.sendMessage(msg.chat.id, `${usersMap.size} пользователей (с момента последней перезагрузки бота)`);
+        bot.sendMessage(msg.chat.id, `${usersMap.size} пользователей с момента последней перезагрузки бота\n\n${loadedTime}`);
         return
       case 'user-names':
         if (usersMap.size > 0) {
@@ -32,7 +33,7 @@ module.exports = (bot, usersMap) => {
             result.push(`@${userName}, ` + '`' + chatData.id + '`')
           }
 
-          bot.sendMessage(msg.chat.id, result.sort(abSort).join('\n\n'));
+          bot.sendMessage(msg.chat.id, result.sort(abSort).join('\n\n'), { parse_mode: "Markdown" });
         } else {
           bot.sendMessage(msg.chat.id, '__No users yet__', { parse_mode: "Markdown" });
         }
