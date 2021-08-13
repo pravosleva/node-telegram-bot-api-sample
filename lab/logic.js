@@ -1,4 +1,4 @@
-const { DEVELOPER_CHAT_ID, DEVELOPER_CHAT_ID } = process.env
+const { DEVELOPER_CHAT_ID, DEVELOPER_NAME } = process.env
 
 let hasDevSupport = false
 if (!Number.isNaN(Number(DEVELOPER_CHAT_ID)) && !!DEVELOPER_CHAT_ID) hasDevSupport = true
