@@ -23,7 +23,7 @@ module.exports = (bot, usersMap) => {
 
     switch (action) {
       case 'users-counter':
-        bot.sendMessage(msg.chat.id, `${usersMap.size} пользователей с момента последней перезагрузки бота\n**${loadedTime}**`);
+        bot.sendMessage(msg.chat.id, `${usersMap.size} пользователей с момента последней перезагрузки бота\n**${loadedTime}**`, { parse_mode: "Markdown" });
         return
       case 'user-names':
         if (usersMap.size > 0) {
