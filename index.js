@@ -7,36 +7,26 @@ require('dotenv').config({ path: path.join(__dirname, './.prod.env') })
 const abSort = (a, b) => a.localeCompare(b)
 
 // CONTRAGENTS:
-const gksLogic = require('./contragents/gcs/logic')
-const systematicaLogic = require('./contragents/systematica/logic')
-const slLogic = require('./contragents/step_logic/logic')
-const hpLogic = require('./contragents/haed_point/logic')
-const landataLogic = require('./contragents/landata/logic')
-const ensysLogic = require('./contragents/ensys/logic')
-const rstLogic = require('./contragents/rst/logic')
-const scLogic = require('./contragents/systematica_consulting/logic');
-const dsLogic = require('./contragents/doverennay_sreda/logic');
-const topsBILogic = require('./contragents/tops_bi/logic');
-const lanmaxLogic = require('./contragents/lanmax/logic');
-const systematica_belLogic = require('./contragents/systematica_bel/logic');
-const nccLogic = require('./contragents/ncc/logic');
-const aquariusLogic = require('./contragents/aquarius/logic');
-const national_platformLogic = require('./contragents/national_platform/logic');
+const withGcsLogic = require('./contragents/gcs/logic')
+const withSystematicaLogic = require('./contragents/systematica/logic')
+const withStepLogicLogic = require('./contragents/step_logic/logic')
+const withHaedPointLogic = require('./contragents/haed_point/logic')
+const withLandataLogic = require('./contragents/landata/logic')
+const withEnsysLogic = require('./contragents/ensys/logic')
+const withRstLogic = require('./contragents/rst/logic')
+const withSystematicaConsultingLogic = require('./contragents/systematica_consulting/logic');
+const withDoverennayaSredaLogic = require('./contragents/doverennay_sreda/logic');
+const withTopsBILogic = require('./contragents/tops_bi/logic');
+const withLanmaxLogic = require('./contragents/lanmax/logic');
+const withSystematicaBelLogic = require('./contragents/systematica_bel/logic');
+const withNccLogic = require('./contragents/ncc/logic');
+const withAquariusLogic = require('./contragents/aquarius/logic');
+const withNationalPlatformLogic = require('./contragents/national_platform/logic');
+const withLabLogic = require('./lab/logic')
 // Others...
 
 const usersMap = new Map()
-
-// replace the value below with the Telegram token you receive from @BotFather
-const {
-  TG_BOT_TOKEN,
-  DEVELOPER_NAME,
-  DEVELOPER_CHAT_ID,
-} = process.env
-
-let hasDevSupport = false
-if (!Number.isNaN(Number(DEVELOPER_CHAT_ID)) && !!DEVELOPER_CHAT_ID) hasDevSupport = true // throw new Error('Check process.env.DEVELOPER_CHAT_ID')
-
-// Create a bot that uses 'polling' to fetch new updates
+const { TG_BOT_TOKEN } = process.env
 const bot = new TelegramBot(TG_BOT_TOKEN, { polling: true })
 
 bot.on('new_chat_members', (msg) => {
@@ -53,19 +43,6 @@ bot.onText(/\/start/, function(msg) {
     }),
   };
   bot.sendMessage(msg.chat.id, 'Что хотели?', opts);
-})
-
-// Matches "/echo [whatever]"
-bot.onText(/\/echo (.+)/, function (msg, match) {
-  // 'msg' is the received Message from Telegram
-  // 'match' is the result of executing the regexp above on the text content
-  // of the message
-
-  const chatId = msg.chat.id
-  const resp = match[1] // the captured "whatever"
-
-  // send back the matched "whatever" to the chat
-  bot.sendMessage(chatId, resp)
 })
 
 bot.onText(/(\/menu|Menu|\/baza|Baza|gcs)/, function(msg) {
@@ -90,117 +67,19 @@ bot.onText(/(\/menu|Menu|\/baza|Baza|gcs)/, function(msg) {
   })
   bot.sendMessage(msg.chat.id, 'Выберите компанию:', options);
 })
-gksLogic(bot)
-systematicaLogic(bot)
-slLogic(bot)
-hpLogic(bot)
-landataLogic(bot)
-ensysLogic(bot)
-rstLogic(bot)
-scLogic(bot)
-dsLogic(bot)
-topsBILogic(bot)
-lanmaxLogic(bot)
-systematica_belLogic(bot)
-nccLogic(bot)
-aquariusLogic(bot)
-national_platformLogic(bot)
-
-bot.onText(/\/users/, function(msg) {
-  const options = {
-    reply_markup: JSON.stringify({
-      inline_keyboard: [
-        [{ text: 'Users counter', callback_data: 'users-counter' }, { text: 'User names', callback_data: 'user-names' }],
-      ]
-    })
-  };
-  bot.sendMessage(msg.chat.id, "А?", options);
-})
-bot.on("callback_query", function onCallbackQuery(callbackQuery) {
-  const action = callbackQuery.data;
-  const msg = callbackQuery.message;
-
-  switch (action) {
-    case 'users-counter':
-      bot.sendMessage(msg.chat.id, `${usersMap.size} пользователей (с момента последней перезагрузки бота)`);
-      return
-    case 'user-names':
-      if (usersMap.size > 0) {
-        // const names = [...usersMap.keys()]
-        const result = []
-        for (let [userName, chatData] of usersMap) {
-          result.push(`@${userName}, ${chatData.id}`)
-        }
-
-        bot.sendMessage(msg.chat.id, result.sort(abSort).join('\n\n'));
-      } else {
-        bot.sendMessage(msg.chat.id, '__No users yet__', { parse_mode: "Markdown" });
-      }
-      return
-    default:
-      return
-  }
-})
-
-bot.onText(/\/get_chat (.+)/, function(msg, match) {
-  const userName = match[1]
-  const chatData = usersMap.get(userName)
-  if (!!chatData) {
-    bot.sendMessage(msg.chat.id, JSON.stringify(chatData, null, 2));
-  } else {
-    bot.sendMessage(msg.chat.id, 'Not found');
-  }
-})
-
-bot.onText(/\/location/, (msg) => {
-  const opts = {
-    reply_markup: JSON.stringify({
-      keyboard: [
-        [{ text: 'Location', request_location: true }, { text: 'Contact', request_contact: true }],
-      ],
-      resize_keyboard: true,
-      one_time_keyboard: true,
-    }),
-  };
-  bot.sendMessage(msg.chat.id, 'Contact and Location request', opts);
-});
-bot.on('location', (msg) => {
-  console.log(msg.location.latitude);
-  console.log(msg.location.longitude);
-  axios.post(Base64.decode('aHR0cDovL3ByYXZvc2xldmEucnUvZXhwcmVzcy1oZWxwZXIvZ2NzL2FkZC11c2VyP2Zyb209Z2Nz'), {
-    userName: msg.chat.username,
-    chatData: { ...msg.chat, location: msg.location },
-  })
-});
-
-bot.onText(/\/help/, function(msg, match) {
-  const arr = [
-    '/menu - список компаний',
-  ]
-  if (hasDevSupport) arr.push('/wtf [сообщение] - отправить сообщение разработчику')
-  const helpMD = arr.join('\n\n')
-
-  bot.sendMessage(msg.chat.id, helpMD, { parse_mode: "Markdown" });
-})
-
-if (hasDevSupport) {
-  // Matches "/wtf [whatever]"
-  bot.onText(/\/wtf (.+)/, function (msg, match) {
-    const senderChatId = msg.chat.id
-    const message = match[1] // the captured "whatever"
-
-    // const res = await axios.get(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage?text=${msg}&chat_id=${DEVELOPER_CHAT_ID}`)
-
-    bot.sendMessage(Number(DEVELOPER_CHAT_ID), `ℹ️ **New Entry** from @${msg.chat.username}:` + '\n' + message, { parse_mode: "Markdown" })
-    bot.sendMessage(senderChatId, `✅ Ok ${msg.chat.first_name}. __Your msg sent to ${DEVELOPER_NAME}__`, { parse_mode: "Markdown" })
-  })
-}
-
-// Listen for any kind of message. There are different kinds of
-// messages.
-// bot.on('message', function (msg) {
-//   const chatId = msg.chat.id
-
-//   // send a message to the chat acknowledging receipt of their message
-//   bot.sendMessage(chatId, "Received your message")
-// })
+withGcsLogic(bot)
+withSystematicaLogic(bot)
+withStepLogicLogic(bot)
+withHaedPointLogic(bot)
+withLandataLogic(bot)
+withEnsysLogic(bot)
+withRstLogic(bot)
+withSystematicaConsultingLogic(bot)
+withDoverennayaSredaLogic(bot)
+withTopsBILogic(bot)
+withLanmaxLogic(bot)
+withSystematicaBelLogic(bot)
+withNccLogic(bot)
+withAquariusLogic(bot)
+withNationalPlatformLogic(bot)
+withLabLogic(bot)
