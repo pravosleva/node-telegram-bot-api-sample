@@ -4,7 +4,6 @@ const axios = require('axios')
 const { Base64 } = require('js-base64')
 
 require('dotenv').config({ path: path.join(__dirname, './.prod.env') })
-const abSort = (a, b) => a.localeCompare(b)
 
 // CONTRAGENTS:
 const withGcsLogic = require('./contragents/gcs/logic')

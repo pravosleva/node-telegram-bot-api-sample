@@ -1,6 +1,8 @@
 let hasDevSupport = false
 if (!Number.isNaN(Number(DEVELOPER_CHAT_ID)) && !!DEVELOPER_CHAT_ID) hasDevSupport = true
 
+const abSort = (a, b) => a.localeCompare(b)
+
 module.exports = (bot) => {
   bot.onText(/\/users/, function(msg) {
     const options = {
