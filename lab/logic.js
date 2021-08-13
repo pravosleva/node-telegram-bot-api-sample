@@ -29,7 +29,7 @@ module.exports = (bot, usersMap) => {
           // const names = [...usersMap.keys()]
           const result = []
           for (let [userName, chatData] of usersMap) {
-            result.push(`@${userName}, ${chatData.id}`)
+            result.push(`@${userName}, ` + '`' + chatData.id + '`')
           }
 
           bot.sendMessage(msg.chat.id, result.sort(abSort).join('\n\n'));
