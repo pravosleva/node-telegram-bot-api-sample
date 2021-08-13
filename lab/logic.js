@@ -77,7 +77,7 @@ module.exports = (bot) => {
     const arr = [
       '/menu - список компаний',
     ]
-    if (hasDevSupport) arr.push('/wtf [сообщение] - отправить сообщение разработчику')
+    if (hasDevSupport) arr.push('/wtf `[сообщение]` - отправить сообщение разработчику')
     const helpMD = arr.join('\n\n')
 
     bot.sendMessage(msg.chat.id, helpMD, { parse_mode: "Markdown" });
