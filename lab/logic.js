@@ -5,7 +5,7 @@ if (!Number.isNaN(Number(DEVELOPER_CHAT_ID)) && !!DEVELOPER_CHAT_ID) hasDevSuppo
 
 const abSort = (a, b) => a.localeCompare(b)
 
-module.exports = (bot) => {
+module.exports = (bot, usersMap) => {
   bot.onText(/\/users/, function(msg) {
     const options = {
       reply_markup: JSON.stringify({
