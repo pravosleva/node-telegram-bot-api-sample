@@ -1,3 +1,5 @@
+const axios = require('axios')
+
 const { DEVELOPER_CHAT_ID, DEVELOPER_NAME } = process.env
 
 let hasDevSupport = false
