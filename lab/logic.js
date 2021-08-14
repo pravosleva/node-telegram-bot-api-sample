@@ -37,7 +37,7 @@ module.exports = (bot, usersMap) => {
 
           bot.sendMessage(msg.chat.id, result.sort(abSort).join('\n\n'), { parse_mode: "Markdown" });
         } else {
-          bot.sendMessage(msg.chat.id, '_ No users yet _', { parse_mode: "Markdown" });
+          bot.sendMessage(msg.chat.id, '_No users yet_', { parse_mode: "Markdown" });
         }
         return
       default:
@@ -78,9 +78,9 @@ module.exports = (bot, usersMap) => {
 
   bot.onText(/\/help/, function(msg, _match) {
     const arr = [
-      '/menu - список компаний',
+      '/menu - Список компаний',
     ]
-    if (hasDevSupport) arr.push('`/wtf [сообщение]` - отправить сообщение разработчику')
+    if (hasDevSupport) arr.push('`/wtf [сообщение]` - Отправить сообщение разработчику')
     const helpMD = arr.join('\n')
 
     bot.sendMessage(msg.chat.id, helpMD, { parse_mode: "Markdown" });
@@ -95,7 +95,7 @@ module.exports = (bot, usersMap) => {
       // const res = await axios.get(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage?text=${msg}&chat_id=${DEVELOPER_CHAT_ID}`)
 
       bot.sendMessage(Number(DEVELOPER_CHAT_ID), `ℹ️ *New Entry from @${msg.chat.username}:*` + '\n' + message, { parse_mode: "Markdown" })
-      bot.sendMessage(senderChatId, `✅ Ok ${msg.chat.first_name}. _Your msg sent to ${DEVELOPER_NAME}_`, { parse_mode: "Markdown" })
+      bot.sendMessage(senderChatId, `✅ Thanx ${msg.chat.first_name}.\n_Your msg sent to ${DEVELOPER_NAME}_`, { parse_mode: "Markdown" })
     })
   }
 }
