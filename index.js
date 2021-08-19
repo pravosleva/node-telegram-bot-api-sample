@@ -22,7 +22,7 @@ const withNccLogic = require('./contragents/ncc/logic');
 const withAquariusLogic = require('./contragents/aquarius/logic');
 const withNationalPlatformLogic = require('./contragents/national_platform/logic');
 const withLabLogic = require('./lab/logic')
-const withTest = require('./lab/test')
+const withTest = require('./contragents/test/logic')
 // Others...
 
 const usersMap = new Map()
