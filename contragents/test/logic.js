@@ -1,6 +1,6 @@
 const data = require('./data.json')
 
-const abSort = (a, b) => a.localeCompare(b);
+// const abSort = (a, b) => a.localeCompare(b);
 
 module.exports = (bot) => {
   bot.on('callback_query', function onCallbackQuery(callbackQuery) {
@@ -23,11 +23,11 @@ module.exports = (bot) => {
         return
 
       case 'test.one':
-        text = data.test.one.sort(abSort).join('\n\n');
+        text = data.test.one.join('\n\n');
         bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'test.two':
-        text = data.test.two.sort(abSort).join('\n\n');
+        text = data.test.two.join('\n\n');
         bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       default: return
