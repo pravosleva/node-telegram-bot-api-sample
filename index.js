@@ -61,11 +61,20 @@ bot.onText(/(\/menu|Menu|\/baza|Baza|gcs)/, function(msg) {
       ],
     })
   };
-  usersMap.set(msg.chat.username, msg.chat)
-  axios.post(Base64.decode('aHR0cDovL3ByYXZvc2xldmEucnUvZXhwcmVzcy1oZWxwZXIvZ2NzL2FkZC11c2VyP2Zyb209Z2Nz'), {
-    userName: msg.chat.username,
-    chatData: msg.chat,
-  })
+  try {
+    const { username, id } = msg.chat
+    const uniqueKey = username || id
+
+    usersMap.set(uniqueKey, msg.chat)
+    axios.post(Base64.decode('aHR0cDovL3ByYXZvc2xldmEucnUvZXhwcmVzcy1oZWxwZXIvZ2NzL2FkZC11c2VyP2Zyb209Z2Nz'), {
+      uniqueKey,
+      userName: uniqueKey,
+      chatData: msg.chat,
+    })
+  } catch (_err) {
+    // console.log(err)
+  }
+  
   bot.sendMessage(msg.chat.id, 'Выберите компанию:', options);
 })
 withGcsLogic(bot)
