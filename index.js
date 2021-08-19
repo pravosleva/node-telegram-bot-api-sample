@@ -22,6 +22,7 @@ const withNccLogic = require('./contragents/ncc/logic');
 const withAquariusLogic = require('./contragents/aquarius/logic');
 const withNationalPlatformLogic = require('./contragents/national_platform/logic');
 const withLabLogic = require('./lab/logic')
+const withTest = require('./lab/test')
 // Others...
 
 const usersMap = new Map()
@@ -48,6 +49,7 @@ bot.onText(/(\/menu|Menu|\/baza|Baza|gcs)/, function(msg) {
   const options = {
     reply_markup: JSON.stringify({
       inline_keyboard: [
+        [{ text: 'TEST', callback_data: 'test' }],
         [{ text: 'ГКС', callback_data: 'gcs' }],
         [{ text: 'Систематика', callback_data: 'systematica' }, { text: 'STEP LOGIC', callback_data: 'step_logic' }],
         [{ text: 'HaedPoint', callback_data: 'haed_point' }, { text: 'Landata', callback_data: 'landata' }],
@@ -82,3 +84,4 @@ withNccLogic(bot)
 withAquariusLogic(bot)
 withNationalPlatformLogic(bot)
 withLabLogic(bot, usersMap)
+withTest(bot)
