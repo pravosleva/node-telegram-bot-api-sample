@@ -1,8 +1,11 @@
 {
 	"ncc": {
 		"info": [
-			"[Информационный блок](https://docs.google.com/document/d/1Oyc0KpLbnHBuxnZpVS06Z5CmtnJnrBBR/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true)"
-		],
+      "[Сайт: www.aq.ru](https://www.aq.ru/)",
+      "[Тел.:+7(495)729-51-50](tel:+74957295150)",
+      "E-mail: question@aq.ru",
+      "*Социальные сети*:\n[Youtube](https://www.youtube.com/channel/UCwnQkDuopbJKAhl6eMZF0UA)\n[Facebook](https://www.facebook.com/2014aquarius)\n\n*Вопросы: Жирухина Светлана*\n[Тел.:+7(495)729-51-50 (доб. 6684)](tel:+74957295150)\nE-mail: sZhirukhina@aq.ru"
+    ],
 		"logo": [
 			"[Rus.png](https://drive.google.com/file/d/1JMHA1MYMHI6YP8HjT_dFE--EvCGb_Xgl/view?usp=sharing)",
 			"[Eng.png](https://drive.google.com/file/d/149lBad1HiJyBXmHESmb-b9JmTTi5lgmc/view?usp=sharing)",
@@ -16,14 +19,19 @@
 		"profiles": [
 			"[Профайл_rus.doc](https://docs.google.com/document/d/1BcGgvw8UgJJfxQhySq_LfX9JkBDo2ofo/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true)"
 		],
-		"presentations": [
-			"[О холдинге_rus.pptx](https://docs.google.com/presentation/d/1TQvwz_wPcZ1YFJbMZa9Orf8Y_DHlsBA8/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true)",
-			"[About NCC_eng.pptx](https://docs.google.com/presentation/d/1shdBAsK05Gv4H4tJivoyTW5UFIO9td7N/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true)",
-			"[Обеспечение безопасности и цифровизация ТЭК.pptx](https://docs.google.com/presentation/d/1DMFkcO0krLR5__ya041Iabu8ELHLphuV/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true)",
-			"[Собственные разработки для импортозамещения.pptx](https://docs.google.com/presentation/d/1TxvkIAfzs6TICirx6b9VmdWpx1SFN1yI/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true)",
-			"[Решения для промышленности.pptx](https://docs.google.com/presentation/d/1NotaoDeQ_QqiKbIPZyNtPFGvoxMJgv7R/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true)",
-			"[Решения для транспортных предприятий.pptx](https://docs.google.com/presentation/d/1dq9zRIUS7Iiu2cEO-BpQWOSCByAWMj3k/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true)",
-			"[Умный кампус.pdf](https://drive.google.com/file/d/11q47LI00Y7uJ_a3oi2p23Skdpl7lSNRG/view?usp=sharing)"
-		]
+		"presentations": {
+			"general": [
+				"[О холдинге_rus.pptx](https://docs.google.com/presentation/d/1TQvwz_wPcZ1YFJbMZa9Orf8Y_DHlsBA8/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true)",
+				"[About NCC_eng.pptx](https://docs.google.com/presentation/d/1shdBAsK05Gv4H4tJivoyTW5UFIO9td7N/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true)"
+				],
+				"industry": [
+				"[Обеспечение безопасности и цифровизация ТЭК.pptx](https://docs.google.com/presentation/d/1DMFkcO0krLR5__ya041Iabu8ELHLphuV/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true)",
+				"[Собственные разработки для импортозамещения.pptx](https://docs.google.com/presentation/d/1TxvkIAfzs6TICirx6b9VmdWpx1SFN1yI/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true)",
+				"[Решения для промышленности.pptx](https://docs.google.com/presentation/d/1NotaoDeQ_QqiKbIPZyNtPFGvoxMJgv7R/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true)",
+				"[Решения для транспортных предприятий.pptx](https://docs.google.com/presentation/d/1dq9zRIUS7Iiu2cEO-BpQWOSCByAWMj3k/edit?usp=sharing&ouid=105400335420600406101&rtpof=true&sd=true)",
+				"[Умный кампус.pdf](https://drive.google.com/file/d/11q47LI00Y7uJ_a3oi2p23Skdpl7lSNRG/view?usp=sharing)",
+				"[Решения для банковской сферы.pptx](https://drive.google.com/file/d/11q47LI00Y7uJ_a3oi2p23Skdpl7lSNRG/view?usp=sharing)"
+			]
+    }
 	}
 }
