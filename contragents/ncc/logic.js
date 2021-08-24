@@ -58,7 +58,7 @@ module.exports = (bot) => {
         bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       case 'ncc.presentations.industry':
-        text = data.gcs.main.presentations.industry.sort(abSort).join('\n\n');
+        text = data.ncc.presentations.industry.sort(abSort).join('\n\n');
         bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
 
