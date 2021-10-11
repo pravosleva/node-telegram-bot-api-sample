@@ -9,6 +9,7 @@ module.exports = (bot) => {
     const msg = callbackQuery.message;
     let text = 'Sorry, in progress...';
     let options
+
     switch(action) {
       case 'systematica_consulting':
         text = 'Выберите материалы Систематика Консалтинг';

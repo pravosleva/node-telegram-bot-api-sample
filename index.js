@@ -3,9 +3,16 @@ const path = require('path')
 const axios = require('axios')
 const { Base64 } = require('js-base64')
 
-require('dotenv').config({ path: path.join(__dirname, './.prod.env') })
+const isDev = process.env.NODE_ENV === 'development'
 
-// CONTRAGENTS:
+if (isDev) {
+  require('dotenv').config({ path: path.join(__dirname, './.dev.env') })
+} else {
+  require('dotenv').config({ path: path.join(__dirname, './.prod.env') })
+}
+
+// Middlewares (contragents & etc.):
+const withLabLogic = require('./lab/logic')
 const withGcsLogic = require('./contragents/gcs/logic')
 const withSystematicaLogic = require('./contragents/systematica/logic')
 const withStepLogicLogic = require('./contragents/step_logic/logic')
@@ -21,7 +28,6 @@ const withSystematicaBelLogic = require('./contragents/systematica_bel/logic');
 const withNccLogic = require('./contragents/ncc/logic');
 const withAquariusLogic = require('./contragents/aquarius/logic');
 const withNationalPlatformLogic = require('./contragents/national_platform/logic');
-const withLabLogic = require('./lab/logic')
 const withTest = require('./contragents/test/logic')
 // Others...
 
@@ -72,11 +78,12 @@ bot.onText(/(\/menu|Menu|\/baza|Baza|gcs)/, function(msg) {
       chatData: msg.chat,
     })
   } catch (_err) {
-    // console.log(err)
+    console.log(err)
   }
   
   bot.sendMessage(msg.chat.id, 'Выберите компанию:', options);
 })
+withLabLogic(bot, usersMap)
 withGcsLogic(bot)
 withSystematicaLogic(bot)
 withStepLogicLogic(bot)
@@ -92,5 +99,4 @@ withSystematicaBelLogic(bot)
 withNccLogic(bot)
 withAquariusLogic(bot)
 withNationalPlatformLogic(bot)
-withLabLogic(bot, usersMap)
 withTest(bot)

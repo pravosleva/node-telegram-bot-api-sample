@@ -8,6 +8,7 @@ module.exports = (bot) => {
     const msg = callbackQuery.message;
     let text = 'Sorry, in progress...';
     let options
+
     switch(action) {
       case 'test':
         text = 'Выберите материалы Landata';
@@ -28,6 +29,11 @@ module.exports = (bot) => {
         return
       case 'test.two':
         text = data.test.two.join('\n\n');
+
+        // NOTE: deleteMessage(chatId: number | string, messageId: string, options?: any): Promise<boolean>;
+        // bot.deleteMessage(msg.chat.id, callbackQuery.message.message_id);
+        // NOTE: Moved to withLabLogic
+
         bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       default: return

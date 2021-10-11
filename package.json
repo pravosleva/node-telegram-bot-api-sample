@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node --max-old-space-size=1024 index.js",
+    "dev": "NODE_ENV=development node --max-old-space-size=1024 index.js",
     "start:pm2": "PORT=2021 pm2 start npm --name anchous-bot-2021 -- run start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

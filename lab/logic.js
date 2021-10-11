@@ -23,6 +23,8 @@ module.exports = (bot, usersMap) => {
     const action = callbackQuery.data;
     const msg = callbackQuery.message;
 
+    bot.deleteMessage(msg.chat.id, callbackQuery.message.message_id);
+
     switch (action) {
       case 'users-counter':
         bot.sendMessage(msg.chat.id, `${usersMap.size} пользователей с момента последней перезагрузки бота\n* ${loadedTime} *`, { parse_mode: "Markdown" });
