@@ -11,12 +11,11 @@ module.exports = (bot) => {
 
     switch(action) {
       case 'test':
-        text = 'Выберите материалы Landata';
+        text = 'Подольская шаболда';
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
-              [{ text: 'Твой вариант', callback_data: 'test.one' }],
-              [{ text: 'Мой вариант', callback_data: 'test.two' }],
+              [{ text: 'Не советую =)', callback_data: 'test.one' }],
             ]
           })
         };
@@ -25,15 +24,6 @@ module.exports = (bot) => {
 
       case 'test.one':
         text = data.test.one.join('\n\n');
-        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
-        return
-      case 'test.two':
-        text = data.test.two.join('\n\n');
-
-        // NOTE: deleteMessage(chatId: number | string, messageId: string, options?: any): Promise<boolean>;
-        // bot.deleteMessage(msg.chat.id, callbackQuery.message.message_id);
-        // NOTE: Moved to withLabLogic
-
         bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
       default: return
