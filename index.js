@@ -55,7 +55,7 @@ bot.onText(/(\/menu|Menu|\/baza|Baza|gcs)/, function(msg) {
   const options = {
     reply_markup: JSON.stringify({
       inline_keyboard: [
-        [{ text: 'Kern porn', callback_data: 'test' }],
+        [{ text: 'Test', callback_data: 'test' }],
         [{ text: 'ГКС', callback_data: 'gcs' }],
         [{ text: 'Систематика', callback_data: 'systematica' }, { text: 'STEP LOGIC', callback_data: 'step_logic' }],
         [{ text: 'HaedPoint', callback_data: 'haed_point' }, { text: 'Landata', callback_data: 'landata' }],
