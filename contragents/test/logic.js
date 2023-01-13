@@ -11,11 +11,11 @@ module.exports = (bot) => {
 
     switch(action) {
       case 'test':
-        text = 'Email';
+        text = 'Подольская шаболда';
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
-              [{ text: 'Get descr', callback_data: 'test.one' }],
+              [{ text: 'Не советую =)', callback_data: 'test.one' }],
             ]
           })
         };
