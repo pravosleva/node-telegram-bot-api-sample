@@ -15,7 +15,7 @@ module.exports = (bot) => {
         options = {
           reply_markup: JSON.stringify({
             inline_keyboard: [
-              [{ text: 'Не советую =)', callback_data: 'test.one' }],
+              [{ text: 'Почему не советую?', callback_data: 'test.one' }],
             ]
           })
         };
