@@ -98,12 +98,11 @@ module.exports = (bot) => {
             // send()
 
             for (let i = 0, max = strs.length; i < max; i++) {
+              let md = strs[i]
+              if (!!usernames[i]) md += `\m[${getName(items[i]) || 'NoName'}](https://t.me/${usernames[i]})`
               setTimeout(function timer() {
-                bot.sendMessage(msg.chat.id, strs[i], { parse_mode: "Markdown" })
+                bot.sendMessage(msg.chat.id, md, { parse_mode: "Markdown" })
               }, i * 200);
-              if (!!usernames[i]) setTimeout(function timer() {
-                bot.sendMessage(msg.chat.id, `[${getName(items[i]) || 'NoName'}](https://t.me/${usernames[i]})`, { parse_mode: "Markdown" })
-              }, i * 300);
             }
           } else throw new Error('Empty array')
         } catch (err) {
