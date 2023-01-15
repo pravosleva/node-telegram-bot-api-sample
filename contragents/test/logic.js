@@ -74,7 +74,7 @@ module.exports = (bot) => {
                   if (!!data[key]) res.push(data[key])
                   break
                 case 'ts':
-                  res.push(`(${getTimeAgo(new Date(data[key]))})`)
+                  res.push(`\n(${getTimeAgo(new Date(data[key]))})`)
                   break
                 default:
                   break
