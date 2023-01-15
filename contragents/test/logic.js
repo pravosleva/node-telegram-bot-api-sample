@@ -4,6 +4,8 @@ const getTimeAgo = require('../../utils/getTimeAgo').getTimeAgo
 
 // const abSort = (a, b) => a.localeCompare(b);
 
+const delay = (ms) => new Promise((res, _rej) => setTimeout(res, ms))
+
 const compareTs = ({ ts: d1 }, { ts: d2 }) => new Date(d2).getTime() - new Date(d1).getTime()
 
 module.exports = (bot) => {
@@ -84,8 +86,9 @@ module.exports = (bot) => {
 
           if (strs.length > 0) {
             bot.sendMessage(msg.chat.id, `\`\`\`\n---\nTOTAL: ${items.length}\nLAST: ${getName(items[0])}\nWHEN: ${getTimeAgo(new Date(items[0].ts))}\n---\`\`\``, { parse_mode: "Markdown" });
-            strs.forEach(s => {
+            strs.forEach(async s => {
               setTimeout(() => bot.sendMessage(msg.chat.id, `\`${s}\``, { parse_mode: "Markdown" }), 1000);
+              await delay(1000)
             })
           } else throw new Error('Empty array')
         } catch (err) {
