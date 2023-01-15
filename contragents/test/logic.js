@@ -94,7 +94,7 @@ module.exports = (bot) => {
             // }
             // send()
 
-            for (let i = 1, max = strs.length; i < max; i++) {
+            for (let i = 0, max = strs.length; i < max; i++) {
               setTimeout(function timer() {
                 bot.sendMessage(msg.chat.id, `\`${strs[i]}\``, { parse_mode: "Markdown" });
               }, i * 200);
