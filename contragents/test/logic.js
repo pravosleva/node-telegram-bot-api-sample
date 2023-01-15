@@ -97,7 +97,7 @@ module.exports = (bot) => {
             for (let i = 1, max = strs.length; i < max; i++) {
               setTimeout(function timer() {
                 bot.sendMessage(msg.chat.id, `\`${strs[i]}\``, { parse_mode: "Markdown" });
-              }, i * 500);
+              }, i * 200);
             }
           } else throw new Error('Empty array')
         } catch (err) {
