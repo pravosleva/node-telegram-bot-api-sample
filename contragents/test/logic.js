@@ -99,7 +99,7 @@ module.exports = (bot) => {
 
             for (let i = 0, max = strs.length; i < max; i++) {
               let md = strs[i]
-              if (!!usernames[i]) md += `\m[${getName(items[i]) || 'NoName'}](https://t.me/${usernames[i]})`
+              if (!!usernames[i]) md += `\n\n[${getName(items[i]) || 'NoName'}](https://t.me/${usernames[i]})`
               setTimeout(function timer() {
                 bot.sendMessage(msg.chat.id, md, { parse_mode: "Markdown" })
               }, i * 200);
