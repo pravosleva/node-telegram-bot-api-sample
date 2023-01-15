@@ -3,9 +3,7 @@ const data = require('./data.json')
 const getTimeAgo = require('../../utils/getTimeAgo').getTimeAgo
 
 // const abSort = (a, b) => a.localeCompare(b);
-
-const delay = (ms) => new Promise((res, _rej) => setTimeout(res, ms))
-
+// const delay = (ms) => new Promise((res, _rej) => setTimeout(res, ms))
 const compareTs = ({ ts: d1 }, { ts: d2 }) => new Date(d2).getTime() - new Date(d1).getTime()
 
 module.exports = (bot) => {
@@ -66,7 +64,6 @@ module.exports = (bot) => {
             const keys = ['first_name', 'username', 'last_name', 'count', 'ts']
 
             for (const key of keys) {
-              // console.log(data[key])
               switch (key) {
                 case 'first_name':
                 case 'username':
@@ -89,13 +86,6 @@ module.exports = (bot) => {
 
           if (strs.length > 0) {
             bot.sendMessage(msg.chat.id, `\`\`\`\n---\nTOTAL: ${items.length}\nLAST: ${getName(items[0])}\nWHEN: ${getTimeAgo(new Date(items[0].ts))}\n---\`\`\``, { parse_mode: "Markdown" });
-            // async function send() {
-            //   strs.forEach(async s => {
-            //     bot.sendMessage(msg.chat.id, `\`${s}\``, { parse_mode: "Markdown" });
-            //     await delay(1000)
-            //   })
-            // }
-            // send()
 
             for (let i = 0, max = strs.length; i < max; i++) {
               let md = strs[i]
