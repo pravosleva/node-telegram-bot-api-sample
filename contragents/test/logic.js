@@ -100,8 +100,10 @@ module.exports = (bot) => {
             for (let i = 0, max = strs.length; i < max; i++) {
               setTimeout(function timer() {
                 bot.sendMessage(msg.chat.id, strs[i], { parse_mode: "Markdown" })
-                if (!!usernames[i]) bot.sendMessage(msg.chat.id, `[${getName(items[0]) || 'NoName'}](https://t.me/${usernames[i]})`, { parse_mode: "Markdown" })
               }, i * 200);
+              if (!!usernames[i]) setTimeout(function timer() {
+                bot.sendMessage(msg.chat.id, `[${getName(items[i]) || 'NoName'}](https://t.me/${usernames[i]})`, { parse_mode: "Markdown" })
+              }, i * 300);
             }
           } else throw new Error('Empty array')
         } catch (err) {
