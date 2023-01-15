@@ -71,10 +71,10 @@ module.exports = (bot) => {
                 case 'username':
                 case 'last_name':
                 case 'count':
-                  if (!!data[key]) res.push(data[key])
+                  if (!!data[key]) res.push(`\`${data[key]}\``)
                   break
                 case 'ts':
-                  res.push(`\n(${getTimeAgo(new Date(data[key]))})`)
+                  res.push(`\n_${getTimeAgo(new Date(data[key]))}_`)
                   break
                 default:
                   break
@@ -96,7 +96,7 @@ module.exports = (bot) => {
 
             for (let i = 0, max = strs.length; i < max; i++) {
               setTimeout(function timer() {
-                bot.sendMessage(msg.chat.id, `\`${strs[i]}\``, { parse_mode: "Markdown" });
+                bot.sendMessage(msg.chat.id, strs[i], { parse_mode: "Markdown" });
               }, i * 200);
             }
           } else throw new Error('Empty array')
