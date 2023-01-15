@@ -45,6 +45,7 @@ module.exports = (bot) => {
           }
           const keys = Object.keys(res.data._staticData)
           const items = keys.filter((key) => key !== 'pravosleva').map((key) => res.data._staticData[key]).sort(compareTs)
+          const usernames = items.map(({ username }) => username || null)
           const getName = (data) => {
             const res = []
             const keys = ['first_name', 'username', 'last_name']
@@ -98,13 +99,14 @@ module.exports = (bot) => {
 
             for (let i = 0, max = strs.length; i < max; i++) {
               setTimeout(function timer() {
-                bot.sendMessage(msg.chat.id, strs[i], { parse_mode: "Markdown" });
+                bot.sendMessage(msg.chat.id, strs[i], { parse_mode: "Markdown" })
+                if (!!usernames[i]) bot.sendMessage(msg.chat.id, `[${getName(items[0]) || 'NoName'}](https://t.me/${usernames[i]})`, { parse_mode: "Markdown" })
               }, i * 200);
             }
           } else throw new Error('Empty array')
         } catch (err) {
           text = err.message || 'ERR2: No err.message'
-          bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
+          bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" })
         }
 
         return
