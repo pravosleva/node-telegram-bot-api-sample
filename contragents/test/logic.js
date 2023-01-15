@@ -70,8 +70,10 @@ module.exports = (bot) => {
                 case 'first_name':
                 case 'username':
                 case 'last_name':
-                case 'count':
                   if (!!data[key]) res.push(`\`${data[key]}\``)
+                  break
+                case 'count':
+                  if (!!data[key]) res.push(`\`(${data[key]})\``)
                   break
                 case 'ts':
                   res.push(`\n_${getTimeAgo(new Date(data[key]))}_`)
