@@ -69,8 +69,8 @@ module.exports = (bot) => {
           }
           const strs = items.map(getStr)
 
-          bot.sendMessage(msg.chat.id, `TOTAL: ${items.length}`, { parse_mode: "Markdown" });
           if (strs.length > 0) {
+            bot.sendMessage(msg.chat.id, `TOTAL: ${items.length} - Last ${getTimeAgo(new Date(items[0].ts))}`, { parse_mode: "Markdown" });
             strs.forEach(s => {
               setTimeout(() => bot.sendMessage(msg.chat.id, `\`${s}\``, { parse_mode: "Markdown" }), 1000);
             })
