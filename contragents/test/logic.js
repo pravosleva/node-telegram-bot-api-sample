@@ -87,8 +87,8 @@ module.exports = (bot) => {
           if (strs.length > 0) {
             bot.sendMessage(msg.chat.id, `\`\`\`\n---\nTOTAL: ${items.length}\nLAST: ${getName(items[0])}\nWHEN: ${getTimeAgo(new Date(items[0].ts))}\n---\`\`\``, { parse_mode: "Markdown" });
             strs.forEach(async s => {
-              setTimeout(() => bot.sendMessage(msg.chat.id, `\`${s}\``, { parse_mode: "Markdown" }), 1000);
               await delay(1000)
+              bot.sendMessage(msg.chat.id, `\`${s}\``, { parse_mode: "Markdown" });
             })
           } else throw new Error('Empty array')
         } catch (err) {
