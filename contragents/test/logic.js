@@ -86,13 +86,19 @@ module.exports = (bot) => {
 
           if (strs.length > 0) {
             bot.sendMessage(msg.chat.id, `\`\`\`\n---\nTOTAL: ${items.length}\nLAST: ${getName(items[0])}\nWHEN: ${getTimeAgo(new Date(items[0].ts))}\n---\`\`\``, { parse_mode: "Markdown" });
-            async function send() {
-              strs.forEach(async s => {
-                bot.sendMessage(msg.chat.id, `\`${s}\``, { parse_mode: "Markdown" });
-                await delay(1000)
-              })
+            // async function send() {
+            //   strs.forEach(async s => {
+            //     bot.sendMessage(msg.chat.id, `\`${s}\``, { parse_mode: "Markdown" });
+            //     await delay(1000)
+            //   })
+            // }
+            // send()
+
+            for (let i = 1, max = strs.length; i < max; i++) {
+              setTimeout(function timer() {
+                bot.sendMessage(msg.chat.id, `\`${strs[i]}\``, { parse_mode: "Markdown" });
+              }, i * 500);
             }
-            send()
           } else throw new Error('Empty array')
         } catch (err) {
           text = err.message || 'ERR2: No err.message'
