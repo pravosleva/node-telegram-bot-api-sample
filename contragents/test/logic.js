@@ -45,6 +45,21 @@ module.exports = (bot) => {
           }
           const keys = Object.keys(res.data._staticData)
           const items = keys.filter((key) => key !== 'pravosleva').map((key) => res.data._staticData[key]).sort(compareTs)
+          const getName = (data) => {
+            const res = []
+            const keys = ['first_name', 'username', 'last_name']
+            for (const key of keys) {
+              switch (key) {
+                case 'first_name':
+                case 'username':
+                case 'last_name':
+                default:
+                  if (!!data[key]) res.push(data[key])
+                  break
+              }
+            }
+            return res.join(' ')
+          }
           const getStr = (data) => {
             const res = []
             const keys = ['first_name', 'username', 'last_name', 'count', 'ts']
@@ -70,7 +85,7 @@ module.exports = (bot) => {
           const strs = items.map(getStr)
 
           if (strs.length > 0) {
-            bot.sendMessage(msg.chat.id, `TOTAL: ${items.length} - Last ${getTimeAgo(new Date(items[0].ts))}`, { parse_mode: "Markdown" });
+            bot.sendMessage(msg.chat.id, `TOTAL: ${items.length}, Last - ${getName(items[0])} ${getTimeAgo(new Date(items[0].ts))}`, { parse_mode: "Markdown" });
             strs.forEach(s => {
               setTimeout(() => bot.sendMessage(msg.chat.id, `\`${s}\``, { parse_mode: "Markdown" }), 1000);
             })
