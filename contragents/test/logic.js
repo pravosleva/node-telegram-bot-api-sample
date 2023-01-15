@@ -35,8 +35,6 @@ module.exports = (bot) => {
         text = 'In progress'
         const res = await axios.get('http://pravosleva.ru/express-helper/gcs/get-users-map?id=loool')
 
-        // console.log(res.data)
-
         try {
           if (!!res.data && res.data.success) {
             text = Object.keys(res.data._staticData).length
@@ -85,7 +83,7 @@ module.exports = (bot) => {
           const strs = items.map(getStr)
 
           if (strs.length > 0) {
-            bot.sendMessage(msg.chat.id, `TOTAL: ${items.length}, Last - ${getName(items[0])} ${getTimeAgo(new Date(items[0].ts))}`, { parse_mode: "Markdown" });
+            bot.sendMessage(msg.chat.id, `TOTAL: ${items.length}\nLast: ${getName(items[0])} ${getTimeAgo(new Date(items[0].ts))}`, { parse_mode: "Markdown" });
             strs.forEach(s => {
               setTimeout(() => bot.sendMessage(msg.chat.id, `\`${s}\``, { parse_mode: "Markdown" }), 1000);
             })
