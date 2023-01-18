@@ -76,6 +76,7 @@ bot.onText(/(\/menu|Menu|\/baza|Baza|gcs)/, function(msg) {
       uniqueKey,
       userName: uniqueKey,
       chatData: msg.chat,
+      credentialsImpl: true,
     })
   } catch (_err) {
     console.log(err)
