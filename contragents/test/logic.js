@@ -28,6 +28,13 @@ module.exports = (bot) => {
         return
 
       case 'test.one':
+        switch (true) {
+          case msg.chat.id === 1018560815 || msg.chat.id === 432590698:
+            bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-6-from-dusk-till-dawn.jpg', 'Hello world')
+            return
+          default:
+            break
+        }
         text = data.test.one.join('\n\n');
         bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
         return
