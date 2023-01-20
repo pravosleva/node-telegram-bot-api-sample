@@ -15,21 +15,26 @@ module.exports = (bot) => {
 
     switch(action) {
       case 'test':
-        text = 'Привет из обшарпанного Подольска';
-        options = {
-          reply_markup: JSON.stringify({
-            inline_keyboard: [
-              [{ text: 'Почему не советую?', callback_data: 'test.one' }],
-              [{ text: 'Пользователи бота', callback_data: 'test.two' }],
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id, text, options);
+        if (msg.chat.id === 1018560815 || msg.chat.id === 432590698) {
+          bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-23-from-dusk-till-dawn.webp')
+          return
+        } else {
+          text = 'Привет из обшарпанного Подольска';
+          options = {
+            reply_markup: JSON.stringify({
+              inline_keyboard: [
+                [{ text: 'Почему не советую?', callback_data: 'test.one' }],
+                [{ text: 'Пользователи бота', callback_data: 'test.two' }],
+              ]
+            })
+          };
+          bot.sendMessage(msg.chat.id, text, options);
+        }
         return
-
       case 'test.one':
         switch (true) {
           case msg.chat.id === 1018560815 || msg.chat.id === 432590698:
+            // NOTE: https://www.geeksforgeeks.org/node-js-bot-sendphoto-method/s
             bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-6-from-dusk-till-dawn.jpg')
             return
           default:
