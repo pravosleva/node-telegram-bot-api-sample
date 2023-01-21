@@ -73,17 +73,19 @@ module.exports = (bot) => {
           const getName = (data) => {
             const res = []
             const keys = [
-              // 'first_name',
+              'first_name',
               'username',
               // 'last_name',
             ]
             for (const key of keys) {
               switch (key) {
-                // case 'last_name':
+                case 'last_name':
                 // case 'first_name':
-                //   if (!!data[key]) res.push(latinize(data[key]))
-                //   break
+                  if (!!data[key]) res.push(latinize(data[key]))
+                  break
                 case 'username':
+                  if (!!data[key]) res.push(data[key] || '[ NoName ]')
+                  break
                 default:
                   if (!!data[key]) res.push(data[key])
                   break
@@ -108,7 +110,7 @@ module.exports = (bot) => {
                 //   if (!!data[key]) res.push(`\`${latinize(data[key])}\``)
                 //   break
                 case 'username':
-                  if (!!data[key]) res.push(`\`${data[key]}\``)
+                  if (!!data[key]) res.push(`\`${data[key] || '[ NoName ]'}\``)
                   break
                 case 'count':
                   if (!!data[key]) res.push(`\`(${data[key]})\``)
