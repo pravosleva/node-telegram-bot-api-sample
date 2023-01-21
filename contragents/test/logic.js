@@ -1,6 +1,7 @@
 const axios = require('axios')
 const data = require('./data.json')
 const getTimeAgo = require('../../utils/getTimeAgo').getTimeAgo
+const latinize = require('latinize')
 
 // const abSort = (a, b) => a.localeCompare(b);
 // const delay = (ms) => new Promise((res, _rej) => setTimeout(res, ms))
@@ -78,9 +79,11 @@ module.exports = (bot) => {
             ]
             for (const key of keys) {
               switch (key) {
-                // case 'first_name':
-                case 'username':
                 // case 'last_name':
+                // case 'first_name':
+                //   if (!!data[key]) res.push(latinize(data[key]))
+                //   break
+                case 'username':
                 default:
                   if (!!data[key]) res.push(data[key])
                   break
@@ -91,7 +94,7 @@ module.exports = (bot) => {
           const getStr = (data) => {
             const res = []
             const keys = [
-              'first_name',
+              // 'first_name',
               'username',
               // 'last_name',
               'count',
@@ -100,9 +103,11 @@ module.exports = (bot) => {
 
             for (const key of keys) {
               switch (key) {
-                case 'first_name':
-                case 'username':
+                // case 'first_name':
                 // case 'last_name':
+                //   if (!!data[key]) res.push(`\`${latinize(data[key])}\``)
+                //   break
+                case 'username':
                   if (!!data[key]) res.push(`\`${data[key]}\``)
                   break
                 case 'count':
