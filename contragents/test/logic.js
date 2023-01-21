@@ -71,12 +71,16 @@ module.exports = (bot) => {
           const usernames = items.map(({ username }) => username || null)
           const getName = (data) => {
             const res = []
-            const keys = ['first_name', 'username', 'last_name']
+            const keys = [
+              // 'first_name',
+              'username',
+              // 'last_name',
+            ]
             for (const key of keys) {
               switch (key) {
-                case 'first_name':
+                // case 'first_name':
                 case 'username':
-                case 'last_name':
+                // case 'last_name':
                 default:
                   if (!!data[key]) res.push(data[key])
                   break
@@ -86,13 +90,19 @@ module.exports = (bot) => {
           }
           const getStr = (data) => {
             const res = []
-            const keys = ['first_name', 'username', 'last_name', 'count', 'ts']
+            const keys = [
+              'first_name',
+              'username',
+              // 'last_name',
+              'count',
+              'ts',
+            ]
 
             for (const key of keys) {
               switch (key) {
                 case 'first_name':
                 case 'username':
-                case 'last_name':
+                // case 'last_name':
                   if (!!data[key]) res.push(`\`${data[key]}\``)
                   break
                 case 'count':
