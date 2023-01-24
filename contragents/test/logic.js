@@ -4,7 +4,7 @@ const getTimeAgo = require('../../utils/getTimeAgo').getTimeAgo
 const latinize = require('latinize')
 
 // const abSort = (a, b) => a.localeCompare(b);
-// const delay = (ms) => new Promise((res, _rej) => setTimeout(res, ms))
+const delay = (ms) => new Promise((res, _rej) => setTimeout(res, ms))
 const compareTs = ({ ts: d1 }, { ts: d2 }) => new Date(d2).getTime() - new Date(d1).getTime()
 
 module.exports = (bot) => {
@@ -27,9 +27,11 @@ module.exports = (bot) => {
               })
             }
             bot.sendMessage(msg.chat.id, text, options)
-            bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-23-from-dusk-till-dawn.webp')
+            // bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-23-from-dusk-till-dawn.webp')
             return
           case msg.chat.id === 1018560815:
+            bot.sendMessage(msg.chat.id, 'Kern detected. Тебе сюда нельзя =)', options)
+            await delay(500)
             bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-23-from-dusk-till-dawn.webp')
             return
           default:
@@ -37,8 +39,8 @@ module.exports = (bot) => {
             options = {
               reply_markup: JSON.stringify({
                 inline_keyboard: [
-                  [{ text: 'Почему не советую?', callback_data: 'test.one' }],
-                  [{ text: 'Пользователи бота', callback_data: 'test.two' }],
+                  [{ text: 'Особые приметы', callback_data: 'test.one' }],
+                  [{ text: 'Слив пользователей бота 2021-2022', callback_data: 'test.two' }],
                 ]
               })
             }
@@ -47,16 +49,17 @@ module.exports = (bot) => {
         }
       case 'test.one':
         switch (true) {
-          case msg.chat.id === 1018560815 || msg.chat.id === 432590698:
+          case msg.chat.id === 432590698:
             // NOTE: https://www.geeksforgeeks.org/node-js-bot-sendphoto-method/s
             bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-6-from-dusk-till-dawn.jpg')
+            await delay(500)
+            bot.sendMessage(msg.chat.id, 'Решил это сам не читать =)', { parse_mode: "Markdown" })
             return
           default:
-            break
+            text = data.test.one.join('\n\n');
+            bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" })
+            return
         }
-        text = data.test.one.join('\n\n');
-        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" });
-        return
       case 'test.two':
         text = 'In progress'
         const res = await axios.get('http://pravosleva.ru/express-helper/gcs/get-users-map?id=loool')
@@ -73,16 +76,16 @@ module.exports = (bot) => {
           const getName = (data) => {
             const res = []
             const keys = [
-              // 'first_name',
+              'first_name',
               'username',
               // 'last_name',
             ]
             for (const key of keys) {
               switch (key) {
                 // case 'last_name':
-                // case 'first_name':
-                  // if (!!data[key]) res.push(latinize(data[key]))
-                  // break
+                case 'first_name':
+                  if (!!data[key]) res.push(latinize(data[key]))
+                  break
                 case 'username':
                   res.push(data[key] || '[ NoName ]')
                   break
