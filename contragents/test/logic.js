@@ -7,6 +7,8 @@ const latinize = require('latinize')
 const delay = (ms) => new Promise((res, _rej) => setTimeout(res, ms))
 const compareTs = ({ ts: d1 }, { ts: d2 }) => new Date(d2).getTime() - new Date(d1).getTime()
 
+const isDen = (chat_id) => chat_id === 432590698
+
 module.exports = (bot) => {
   bot.on('callback_query', async function onCallbackQuery(callbackQuery) {
     const action = callbackQuery.data;
@@ -17,17 +19,18 @@ module.exports = (bot) => {
     switch(action) {
       case 'test':
         switch (true) {
-          case msg.chat.id === 432590698:
+          case isDen(msg.chat.id):
             text = 'Hello wsp';
             options = {
               reply_markup: JSON.stringify({
                 inline_keyboard: [
-                  [{ text: 'Пользователи бота', callback_data: 'test.two' }],
+                  [{ text: 'Слив пользователей бота 2021-2022', callback_data: 'test.two' }],
                 ]
               })
             }
             bot.sendMessage(msg.chat.id, text, options)
-            // bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-23-from-dusk-till-dawn.webp')
+            await delay(500)
+            bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-23-from-dusk-till-dawn.webp')
             return
           case msg.chat.id === 1018560815:
             bot.sendMessage(msg.chat.id, 'Kern detected. Тебе сюда нельзя =)', options)
@@ -48,18 +51,9 @@ module.exports = (bot) => {
             return
         }
       case 'test.one':
-        switch (true) {
-          case msg.chat.id === 432590698:
-            // NOTE: https://www.geeksforgeeks.org/node-js-bot-sendphoto-method/s
-            bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-6-from-dusk-till-dawn.jpg')
-            await delay(500)
-            bot.sendMessage(msg.chat.id, 'Решил это сам не читать =)', { parse_mode: "Markdown" })
-            return
-          default:
-            text = data.test.one.join('\n\n');
-            bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" })
-            return
-        }
+        text = data.test.one.join('\n\n');
+        bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" })
+        return
       case 'test.two':
         text = 'In progress'
         const res = await axios.get('http://pravosleva.ru/express-helper/gcs/get-users-map?id=loool')
