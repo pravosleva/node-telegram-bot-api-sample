@@ -82,7 +82,7 @@ bot.onText(/(\/menu|Menu|\/baza|Baza|gcs)/, function(msg) {
     console.log(err)
   }
   
-  bot.sendMessage(msg.chat.id, 'Выберите компанию:', options);
+  bot.sendMessage(msg.chat.id, 'Выберите компанию для закабаления:', options);
 })
 withLabLogic(bot, usersMap)
 withGcsLogic(bot)
