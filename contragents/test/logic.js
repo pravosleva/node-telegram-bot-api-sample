@@ -93,7 +93,7 @@ module.exports = (bot) => {
           const getStr = (data) => {
             const res = []
             const keys = [
-              // 'first_name',
+              'first_name',
               'username',
               // 'last_name',
               'count',
@@ -102,10 +102,10 @@ module.exports = (bot) => {
 
             for (const key of keys) {
               switch (key) {
-                // case 'first_name':
+                case 'first_name':
                 // case 'last_name':
-                //   if (!!data[key]) res.push(`\`${latinize(data[key])}\``)
-                //   break
+                  if (!!data[key]) res.push(`\`${latinize(data[key])}\``)
+                  break
                 case 'username':
                   res.push(`\`${data[key] || '[ NoName ]'}\``)
                   break
