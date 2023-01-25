@@ -1,4 +1,5 @@
 const axios = require('axios')
+const delay = require('../utils/delay').delay
 
 const { DEVELOPER_CHAT_ID, DEVELOPER_NAME } = process.env
 
@@ -33,9 +34,7 @@ module.exports = (bot, usersMap) => {
         if (usersMap.size > 0) {
           // const names = [...usersMap.keys()]
           const result = []
-          for (let [userName, chatData] of usersMap) {
-            result.push(`@${userName}, ` + '`' + chatData.id + '`')
-          }
+          for (let [userName, chatData] of usersMap) result.push(`@${userName}, ` + '`' + chatData.id + '`')
 
           bot.sendMessage(msg.chat.id, result.sort(abSort).join('\n\n'), { parse_mode: "Markdown" });
         } else {
@@ -90,14 +89,15 @@ module.exports = (bot, usersMap) => {
 
   if (hasDevSupport) {
     // Matches "/wtf [whatever]"
-    bot.onText(/\/wtf (.+)/, function (msg, match) {
+    bot.onText(/\/wtf (.+)/, async function (msg, match) {
       const senderChatId = msg.chat.id
       const message = match[1] // the captured "whatever"
 
       // const res = await axios.get(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage?text=${msg}&chat_id=${DEVELOPER_CHAT_ID}`)
 
-      bot.sendMessage(Number(DEVELOPER_CHAT_ID), `ℹ️ *New Entry from @${msg.chat.username}:*` + '\n' + message, { parse_mode: "Markdown" })
-      bot.sendMessage(senderChatId, `✅ Thanx ${msg.chat.first_name}.\n_Your msg sent to ${DEVELOPER_NAME}_`, { parse_mode: "Markdown" })
+      bot.sendMessage(Number(DEVELOPER_CHAT_ID), `ℹ️ *New Entry from ${!!msg.chat.username ? `@${msg.chat.username}` : 'NoName'}:*` + '\n' + message, { parse_mode: "Markdown" })
+      await delay(500)
+      bot.sendMessage(senderChatId, `✅ Thanx ${msg.chat.first_name || 'NoName'}.\n_Your msg sent to ${DEVELOPER_NAME}_`, { parse_mode: "Markdown" })
     })
   }
 }

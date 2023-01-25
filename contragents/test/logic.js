@@ -2,9 +2,9 @@ const axios = require('axios')
 const data = require('./data.json')
 const getTimeAgo = require('../../utils/getTimeAgo').getTimeAgo
 const latinize = require('latinize')
+const delay = require('../../utils/delay').delay
 
 // const abSort = (a, b) => a.localeCompare(b);
-const delay = (ms) => new Promise((res, _rej) => setTimeout(res, ms))
 const compareTs = ({ ts: d1 }, { ts: d2 }) => new Date(d2).getTime() - new Date(d1).getTime()
 
 const isDen = (chat_id) => chat_id === 432590698
