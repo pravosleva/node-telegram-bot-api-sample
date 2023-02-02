@@ -8,6 +8,7 @@ const delay = require('../../utils/delay').delay
 const compareTs = ({ ts: d1 }, { ts: d2 }) => new Date(d2).getTime() - new Date(d1).getTime()
 
 const isDen = (chat_id) => chat_id === 432590698
+const isBitch = (chat_id) => chat_id === 1018560815
 
 module.exports = (bot) => {
   bot.on('callback_query', async function onCallbackQuery(callbackQuery) {
@@ -32,19 +33,22 @@ module.exports = (bot) => {
             await delay(500)
             bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-23-from-dusk-till-dawn.webp')
             return
-          case msg.chat.id === 1018560815:
+          case isBitch(msg.chat.id):
             bot.sendMessage(msg.chat.id, 'Kern detected. Тебе сюда нельзя =)', options)
             await delay(500)
             bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-23-from-dusk-till-dawn.webp')
             return
           default:
             text = 'Привет из обшарпанного Подольска';
+            const inline_keyboard = [
+              [{ text: 'Особые приметы', callback_data: 'test.one' }],
+            ]
+            if (isDen(msg.chat.id))
+              inline_keyboard.push([{ text: 'Слив пользователей бота 2021-2022', callback_data: 'test.two' }])
+
             options = {
               reply_markup: JSON.stringify({
-                inline_keyboard: [
-                  [{ text: 'Особые приметы', callback_data: 'test.one' }],
-                  [{ text: 'Слив пользователей бота 2021-2022', callback_data: 'test.two' }],
-                ]
+                inline_keyboard
               })
             }
             bot.sendMessage(msg.chat.id, text, options)
@@ -70,16 +74,16 @@ module.exports = (bot) => {
           const getName = (data) => {
             const res = []
             const keys = [
-              'first_name',
+              // 'first_name',
               'username',
               // 'last_name',
             ]
             for (const key of keys) {
               switch (key) {
                 // case 'last_name':
-                case 'first_name':
-                  if (!!data[key]) res.push(latinize(data[key]))
-                  break
+                // case 'first_name':
+                //   if (!!data[key]) res.push(latinize(data[key]))
+                //   break
                 case 'username':
                   res.push(data[key] || '[ NoName ]')
                   break
@@ -93,7 +97,7 @@ module.exports = (bot) => {
           const getStr = (data) => {
             const res = []
             const keys = [
-              'first_name',
+              // 'first_name',
               'username',
               // 'last_name',
               'count',
@@ -102,10 +106,10 @@ module.exports = (bot) => {
 
             for (const key of keys) {
               switch (key) {
-                case 'first_name':
+                // case 'first_name':
                 // case 'last_name':
-                  if (!!data[key]) res.push(`\`${latinize(data[key])}\``)
-                  break
+                //   if (!!data[key]) res.push(`\`${latinize(data[key])}\``)
+                //   break
                 case 'username':
                   res.push(`\`${data[key] || '[ NoName ]'}\``)
                   break
