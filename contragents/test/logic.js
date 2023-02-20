@@ -20,26 +20,30 @@ module.exports = (bot) => {
     switch(action) {
       case 'test':
         switch (true) {
-          case isDen(msg.chat.id):
-            text = 'Hello wsp';
-            options = {
-              reply_markup: JSON.stringify({
-                inline_keyboard: [
-                  [{ text: 'Слив пользователей бота 2021-2022', callback_data: 'test.two' }],
-                ]
-              })
-            }
-            bot.sendMessage(msg.chat.id, text, options)
-            await delay(500)
-            bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-23-from-dusk-till-dawn.webp')
-            return
+          // case isDen(msg.chat.id):
+          //   text = 'Hello wsp';
+          //   options = {
+          //     reply_markup: JSON.stringify({
+          //       inline_keyboard: [
+          //         [{ text: 'Слив пользователей бота 2021-2022', callback_data: 'test.two' }],
+          //       ]
+          //     })
+          //   }
+          //   bot.sendMessage(msg.chat.id, text, options)
+          //   await delay(500)
+          //   bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-23-from-dusk-till-dawn.webp')
+          //   return
           case isBitch(msg.chat.id):
             bot.sendMessage(msg.chat.id, 'Kern detected. Тебе сюда нельзя =)', options)
             await delay(500)
-            bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-23-from-dusk-till-dawn.webp')
+            try {
+              bot.sendPhoto(msg.chat.id, 'https://pravosleva.ru/dist.viselitsa-2023/images/final/fail-23-from-dusk-till-dawn.webp')
+            } catch (err) {
+              console.log(err)
+            }
             return
           default:
-            text = 'Привет из обшарпанного Подольска';
+            text = 'Привет из Подольска';
             const inline_keyboard = [
               [{ text: 'Особые приметы', callback_data: 'test.one' }],
             ]
