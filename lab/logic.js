@@ -34,7 +34,7 @@ module.exports = (bot, usersMap) => {
 
     switch (action) {
       case 'users-counter':
-        bot.sendMessage(msg.chat.id, `${usersMap.size + defaultUsersCounter} пользователей с момента последней перезагрузки бота\n* ${loadedTime} *`, { parse_mode: "Markdown" });
+        bot.sendMessage(msg.chat.id, `${usersMap.size + defaultUsersCounter} пользователей с момента последней перезагрузки бота\n*${loadedTime}*`, { parse_mode: "Markdown" });
         return
       case 'user-names':
         if (!isDen(msg.chat.id)) {
