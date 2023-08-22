@@ -133,14 +133,17 @@ module.exports = (bot) => {
 
           if (strs.length > 0) {
             for (let i = 0, max = strs.length; i < max; i++) {
+              const isLast = (order) => order === max - 1
               let md = strs[i]
               if (!!usernames[i]) md += `\n\n[${getName(items[i]) || 'NoName'}](https://t.me/${usernames[i]})`
               setTimeout(function timer() {
                 bot.sendMessage(msg.chat.id, md, { parse_mode: "Markdown" })
               }, i * 200);
-              if (i === max - 1) {
+
+              if (isLast(i)) setTimeout(function timer() {
                 bot.sendMessage(msg.chat.id, `\`\`\`\n---\nTOTAL: ${items.length}\nLAST: ${getName(items[0])}\nWHEN: ${getTimeAgo(new Date(items[0].ts))}\n---\`\`\``, { parse_mode: "Markdown" });
-              }
+              }, i * 200);
+
             }
           } else {
             // throw new Error('Empty array')
