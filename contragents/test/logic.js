@@ -47,8 +47,8 @@ module.exports = (bot) => {
             const inline_keyboard = [
               [{ text: 'Особые приметы', callback_data: 'test.one' }],
             ]
-            if (isDen(msg.chat.id))
-              inline_keyboard.push([{ text: 'Слив пользователей бота 2021-2022', callback_data: 'test.two' }])
+            // if (isDen(msg.chat.id))
+            inline_keyboard.push([{ text: 'Пользователи 2021-2022', callback_data: 'test.two' }])
 
             options = {
               reply_markup: JSON.stringify({
@@ -78,16 +78,16 @@ module.exports = (bot) => {
           const getName = (data) => {
             const res = []
             const keys = [
-              // 'first_name',
+              'first_name',
               'username',
-              // 'last_name',
+              'last_name',
             ]
             for (const key of keys) {
               switch (key) {
-                // case 'last_name':
-                // case 'first_name':
-                //   if (!!data[key]) res.push(latinize(data[key]))
-                //   break
+                case 'last_name':
+                case 'first_name':
+                  if (!!data[key]) res.push(latinize(data[key]))
+                  break
                 case 'username':
                   res.push(data[key] || '[ NoName ]')
                   break
@@ -132,8 +132,6 @@ module.exports = (bot) => {
           const strs = items.map(getStr)
 
           if (strs.length > 0) {
-            bot.sendMessage(msg.chat.id, `\`\`\`\n---\nTOTAL: ${items.length}\nLAST: ${getName(items[0])}\nWHEN: ${getTimeAgo(new Date(items[0].ts))}\n---\`\`\``, { parse_mode: "Markdown" });
-
             for (let i = 0, max = strs.length; i < max; i++) {
               let md = strs[i]
               if (!!usernames[i]) md += `\n\n[${getName(items[i]) || 'NoName'}](https://t.me/${usernames[i]})`
@@ -141,7 +139,11 @@ module.exports = (bot) => {
                 bot.sendMessage(msg.chat.id, md, { parse_mode: "Markdown" })
               }, i * 200);
             }
-          } else throw new Error('Empty array')
+            bot.sendMessage(msg.chat.id, `\`\`\`\n---\nTOTAL: ${items.length}\nLAST: ${getName(items[0])}\nWHEN: ${getTimeAgo(new Date(items[0].ts))}\n---\`\`\``, { parse_mode: "Markdown" });
+          } else {
+            // throw new Error('Empty array')
+            bot.sendMessage(msg.chat.id, `\`\`\`\n---\nTOTAL: ${items.length}\n---\`\`\``, { parse_mode: "Markdown" });
+          }
         } catch (err) {
           text = err.message || 'ERR2: No err.message'
           bot.sendMessage(msg.chat.id, text, { parse_mode: "Markdown" })
