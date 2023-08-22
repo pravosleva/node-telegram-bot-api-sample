@@ -2,6 +2,9 @@ const axios = require('axios')
 const delay = require('../utils/delay').delay
 
 const { DEVELOPER_CHAT_ID, DEVELOPER_NAME } = process.env
+// const isBitch = (chat_id) => chat_id === 1018560815
+const isDen = (chat_id) => chat_id === 432590698
+const defaultUsersCounter = 2
 
 let hasDevSupport = false
 if (!Number.isNaN(Number(DEVELOPER_CHAT_ID)) && !!DEVELOPER_CHAT_ID) hasDevSupport = true
@@ -14,7 +17,10 @@ module.exports = (bot, usersMap) => {
     const options = {
       reply_markup: JSON.stringify({
         inline_keyboard: [
-          [{ text: 'Users counter', callback_data: 'users-counter' }, { text: 'User names', callback_data: 'user-names' }],
+          [
+            { text: 'Users counter', callback_data: 'users-counter' },
+            { text: 'User names', callback_data: 'user-names' }
+          ],
         ]
       })
     };
@@ -28,9 +34,14 @@ module.exports = (bot, usersMap) => {
 
     switch (action) {
       case 'users-counter':
-        bot.sendMessage(msg.chat.id, `${usersMap.size} пользователей с момента последней перезагрузки бота\n* ${loadedTime} *`, { parse_mode: "Markdown" });
+        bot.sendMessage(msg.chat.id, `${usersMap.size + defaultUsersCounter} пользователей с момента последней перезагрузки бота\n* ${loadedTime} *`, { parse_mode: "Markdown" });
         return
       case 'user-names':
+        if (!isDen(msg.chat.id)) {
+          bot.sendMessage(msg.chat.id, 'Для тебя это пока остается интригой...', { parse_mode: "Markdown" });
+          return
+        }
+
         if (usersMap.size > 0) {
           // const names = [...usersMap.keys()]
           const result = []
